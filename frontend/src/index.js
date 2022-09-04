@@ -9,5 +9,5 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
   );
-  console.log("hello world")
+  console.log("hello")
   
