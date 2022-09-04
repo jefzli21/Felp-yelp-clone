@@ -10,5 +10,5 @@ ReactDOM.render(
   document.getElementById('root')
   );
 
-  console.log("hello eeesfaufhasuifhaoiu")
+  console.log("hello mama")
   
