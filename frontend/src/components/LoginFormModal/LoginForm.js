@@ -29,31 +29,34 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="loginmo">
+
+      <h1 id="logmo">Log In to Felp</h1>
+      <form onSubmit={handleSubmit} className='inputform'>
         <ul>
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
-        <label>
-          Username or Email
           <input
+            className="inputbox"
             type="text"
+            placeholder="Username or Email"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
-          />
-        </label>
-        <label>
-          Password
+            />
+
           <input
+            className="inputbox"
+            placeholder="Password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </label>
-        <button type="submit">Log In</button>
+            />
+        <button className="inputbox" type="submit" id="subbut">Log In</button>
       </form>
+      <button className="inputbox" id="demo" onClick={()=>dispatch(sessionActions.login({credential:"foodhelper", password:"password"}))}>Demo Login</button>
+    </div>
     </>
   );
 }

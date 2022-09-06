@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
-function SignupFormPage() {
+function SignupForm() {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
@@ -38,51 +38,53 @@ function SignupFormPage() {
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="signupmo">
+      <h1 className="sigmo">Sign Up for Felp</h1>
+      <form onSubmit={handleSubmit} className='inputform'>
         <ul>
           {errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
-        <label>
-          Email
+          {/* Email */}
           <input
+            className="inputbox"
             type="text"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-          />
-        </label>
-        <label>
-          Username
+            />
+          {/* Username */}
           <input
+            className="inputbox"
             type="text"
             value={username}
+            placeholder='Username'
             onChange={(e) => setUsername(e.target.value)}
             required
-          />
-        </label>
-        <label>
-          Password
+            />
+          {/* Password */}
           <input
+            className="inputbox"
             type="password"
+            placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-          />
-        </label>
-        <label>
-          Confirm Password
+            />
+          {/* Confirm Password */}
           <input
+            className="inputbox"
             type="password"
+            placeholder="Confirm Password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
             required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
+            />
+        <button type="submit" className="inputbox" id="subbut">Sign Up</button>
       </form>
+    </div>
     </>
   );
 }
 
-export default SignupFormPage;
+export default SignupForm;
