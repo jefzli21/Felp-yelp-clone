@@ -45,3 +45,12 @@
     border: 1px lightgray solid;
     border-radius: 3px;
 }
+
+#switchlink{
+    color: purple;
+    border-bottom: 1px gray solid;
+}
+
+#switchlink:hover{
+    cursor: pointer;
+}

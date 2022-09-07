@@ -24,12 +24,12 @@ function Navigation() {
     sessionLinks = (
       <>
       <li>
-        <LoginFormModal showSignupModal={showSignupModal} />
+        <LoginFormModal setSignupModal={setSignupModal} showLoginModal={showLoginModal} setLoginModal={setLoginModal} />
         {/* <NavLink to="/login"><button id='login'>Log In</button></NavLink> */}
       </li>
       <li className='butt'>
         {/* <NavLink to="/signup"><button id='signup'>Sign Up</button></NavLink> */}
-        <SignupFormModal showLoginModal={showLoginModal} />
+        <SignupFormModal showSignupModal={showSignupModal} setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
       </li>
       </>
     );

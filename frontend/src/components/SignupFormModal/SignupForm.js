@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import './SignupForm.css';
 
-function SignupForm() {
+function SignupForm({setLoginModal, setSignupModal}) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
@@ -14,6 +14,11 @@ function SignupForm() {
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/" />;
+
+  const handleClick =()=>{
+    setSignupModal(false);
+    setLoginModal(true);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -82,7 +87,7 @@ function SignupForm() {
             />
         <button type="submit" className="inputbox" id="subbut">Sign Up</button>
       </form>
-      <p>Already has an account? <a href="">Login to Felp!</a></p>
+      <p>Already has an account? <a id='switchlink' onClick={handleClick}>Login to Felp!</a></p>
     </div>
     </>
   );

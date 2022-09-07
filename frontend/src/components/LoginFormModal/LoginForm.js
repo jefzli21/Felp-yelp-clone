@@ -3,12 +3,17 @@ import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import "./LoginForm.css";
 
-function LoginForm() {
+function LoginForm({setSignupModal, setLoginModal}) {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
+  const handleClick = () =>{
+    setLoginModal(false);
+    setSignupModal(true);
+  }
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -55,8 +60,8 @@ function LoginForm() {
             />
         <button className="inputbox" type="submit" id="subbut">Log In</button>
       </form>
-      <button className="inputbox" id="demo" onClick={()=>dispatch(sessionActions.login({credential:"foodhelper", password:"password"}))}>Demo Login</button>
-      <p>New to Felp? <a href="">Create an Account!</a></p>
+      <button className="inputbox" id="subbut" onClick={()=>dispatch(sessionActions.login({credential:"foodhelper", password:"password"}))}>Demo Login</button>
+      <p>New to Felp? <a id="switchlink" onClick={handleClick}>Create an Account!</a></p>
     </div>
     </>
   );
