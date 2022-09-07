@@ -19,9 +19,7 @@ function LoginForm({setSignupModal, setLoginModal}) {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
-      .then(() => { 
-        console.log("hello")
-        setLoginModal(false)})
+      .then(() => {setLoginModal(false)})
       .catch(async (res) => {
         let data;
         try {
