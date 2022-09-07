@@ -10,8 +10,8 @@ function LoginForm({setSignupModal, setLoginModal}) {
   const [errors, setErrors] = useState([]);
 
   const handleClick = () =>{
-    // setLoginModal(false);
-    // setSignupModal(true);
+    setSignupModal(true);
+    setLoginModal(false);
   }
   
   const handleSubmit = (e) => {
