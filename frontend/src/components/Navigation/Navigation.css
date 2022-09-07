@@ -1,7 +1,7 @@
 .nav{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     margin: -10px;
     background-image: linear-gradient( rgb(70, 68, 68) , rgba(255, 255, 0, 0));
 }
@@ -13,7 +13,8 @@
 
 .butt{
     list-style-type: none;
-    margin-left: 30px;
+    margin-left: 5px;
+    margin-right: 10px;
 }
 
 .search{
@@ -40,6 +41,69 @@
 
 /* Logged In */
 
+#profile{
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    border-radius: 50px;
+    /* transition: height 2s; */
+    cursor: pointer;
+    border: none;
+    z-index: 10;
+    margin-right:2rem ;
+}
+
+#profile:hover{
+    color: lightgray;
+}
+
+.profile-dropdown{
+    background-color: white;
+    position:fixed;
+    margin-top: 5rem;
+    margin-left: -4rem;
+    border: 1px solid lightgray;
+    list-style-type: none;
+}
+
+.profile-dropdown > li{
+    /* margin-left: 3rem; */
+    /* margin-bottom: 30px;
+    margin-right: 10px ;
+    margin-top: 10px; */
+    font-size: 25px;
+    padding: 10px;
+    margin-left: -40px;
+    cursor: pointer;
+
+
+}
+
+.drop{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
+
+#logout{
+    border-top: 1px lightgray solid;
+    /* padding-top: 20px; */
+    display: flex;
+    align-items: center;
+
+}
+
+#logoutbutt{
+    font-size: 20px;
+    border: none;
+    background-color: rgba(255, 0, 0, 0);
+    cursor: pointer;
+
+}
+
+#icons{
+    margin-right: 10px;
+}
 
 
 

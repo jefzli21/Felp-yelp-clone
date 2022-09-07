@@ -7,7 +7,7 @@ function SearchBar(){
         <>
         <form className='search'>
             <input id='st' type='text'/>
-            <i id='mag' class="fa-solid fa-magnifying-glass"></i>
+            <i id='mag' className="fa-solid fa-magnifying-glass"></i>
         </form>
         </>
     )

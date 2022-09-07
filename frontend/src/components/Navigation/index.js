@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
@@ -8,8 +8,11 @@ import logo from "./logo/felp-white.png"
 import SignupFormModal from '../SignupFormModal';
 import SearchBar from '../SearchBar';
 
+
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
+  const [showLoginModal, setLoginModal] = useState(false);
+  const [showSignupModal, setSignupModal] = useState(false);
 
 
   let sessionLinks;
@@ -21,20 +24,21 @@ function Navigation() {
     sessionLinks = (
       <>
       <li>
-        <LoginFormModal/>
+        <LoginFormModal showSignupModal={showSignupModal} />
         {/* <NavLink to="/login"><button id='login'>Log In</button></NavLink> */}
       </li>
       <li className='butt'>
         {/* <NavLink to="/signup"><button id='signup'>Sign Up</button></NavLink> */}
-        <SignupFormModal />
+        <SignupFormModal showLoginModal={showLoginModal} />
       </li>
       </>
     );
   }
 
   return (
-    <ul className='nav'>
+    <div className='background'>
 
+    <ul className='nav'>
         <NavLink exact to="/"><div className='logo'><img  className='logo' src={logo} alt='' width="150" height="150"/></div></NavLink>
         <div>
           <SearchBar />
@@ -44,6 +48,7 @@ function Navigation() {
         {sessionLinks}
         </div>
     </ul>
+    </div>
   );
 }
 

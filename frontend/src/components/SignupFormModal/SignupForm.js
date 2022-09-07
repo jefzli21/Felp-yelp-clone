@@ -82,6 +82,7 @@ function SignupForm() {
             />
         <button type="submit" className="inputbox" id="subbut">Sign Up</button>
       </form>
+      <p>Already has an account? <a href="">Login to Felp!</a></p>
     </div>
     </>
   );

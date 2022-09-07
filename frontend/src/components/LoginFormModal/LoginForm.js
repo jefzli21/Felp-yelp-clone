@@ -56,6 +56,7 @@ function LoginForm() {
         <button className="inputbox" type="submit" id="subbut">Log In</button>
       </form>
       <button className="inputbox" id="demo" onClick={()=>dispatch(sessionActions.login({credential:"foodhelper", password:"password"}))}>Demo Login</button>
+      <p>New to Felp? <a href="">Create an Account!</a></p>
     </div>
     </>
   );
