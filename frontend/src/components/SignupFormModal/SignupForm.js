@@ -15,7 +15,8 @@ function SignupForm({setLoginModal, setSignupModal}) {
 
   if (sessionUser) return <Redirect to="/" />;
 
-  const handleClick =()=>{
+  const handleClick =(e)=>{
+    e.preventDefault();
     setSignupModal(false);
     setLoginModal(true);
   }
@@ -25,6 +26,7 @@ function SignupForm({setLoginModal, setSignupModal}) {
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, username, password }))
+        .then(() => setSignupModal(false))
         .catch(async (res) => {
         let data;
         try {

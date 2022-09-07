@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/jefzli21/Felp-yelp-clone#readme",
   "dependencies": {
+    "framer-motion": "^7.3.2",
     "react-background-slider": "^3.0.0-0"
   }
 }

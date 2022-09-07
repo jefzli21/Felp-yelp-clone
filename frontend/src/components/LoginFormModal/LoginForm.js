@@ -9,7 +9,8 @@ function LoginForm({setSignupModal, setLoginModal}) {
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  const handleClick = () =>{
+  const handleClick = (e) =>{
+    e.preventDefault();
     setSignupModal(true);
     setLoginModal(false);
   }
@@ -18,6 +19,9 @@ function LoginForm({setSignupModal, setLoginModal}) {
     e.preventDefault();
     setErrors([]);
     return dispatch(sessionActions.login({ credential, password }))
+      .then(() => { 
+        console.log("hello")
+        setLoginModal(false)})
       .catch(async (res) => {
         let data;
         try {
@@ -30,6 +34,7 @@ function LoginForm({setSignupModal, setLoginModal}) {
         else if (data) setErrors([data]);
         else setErrors([res.statusText]);
       });
+
   };
 
   return (
@@ -60,7 +65,10 @@ function LoginForm({setSignupModal, setLoginModal}) {
             />
         <button className="inputbox" type="submit" id="subbut">Log In</button>
       </form>
-      <button className="inputbox" id="subbut" onClick={()=>dispatch(sessionActions.login({credential:"foodhelper", password:"password"}))}>Demo Login</button>
+      <button className="inputbox" id="subbut" onClick={()=>{
+        dispatch(sessionActions.login({credential:"foodhelper", password:"password"}))
+        setLoginModal(false)
+        }}>Demo Login</button>
       <p>New to Felp? <a id="switchlink" onClick={handleClick}>Create an Account!</a></p>
     </div>
     </>
