@@ -21,12 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_223327) do
     t.string "hours", null: false
     t.text "about", null: false
     t.string "feature", null: false
-    t.bigint "phone", null: false
-    t.bigint "long", null: false
-    t.bigint "lat", null: false
+    t.integer "phone", null: false
+    t.bigint "owner_id", null: false
+    t.float "long", null: false
+    t.float "lat", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["biz_name"], name: "index_businesses_on_biz_name", unique: true
+    t.index ["owner_id"], name: "index_businesses_on_owner_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +43,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_09_07_223327) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "businesses", "users", column: "owner_id"
 end
