@@ -9,15 +9,22 @@
 #  hours      :string           not null
 #  about      :text             not null
 #  feature    :string           not null
-#  phone      :bigint           not null
-#  long       :bigint           not null
-#  lat        :bigint           not null
+#  phone      :integer          not null
+#  owner_id   :bigint           not null
+#  long       :float            not null
+#  lat        :float            not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 class Business < ApplicationRecord
+    validates :biz_name, :biz_type, :address, :hours, :about, :feature, :phone, :owner_id, :long, :lat, presence: true
     
-    
-    
+    belongs_to :owner, class_name: :User
+    # has_many_attached :photos
+
+    # def average_rating 
+    #     average = reviews.average(:rating)
+    #     average && average.round(1)
+    # end
     
 end

@@ -1,0 +1,12 @@
+json.extract! business,
+ :id,
+ :biz_name,
+ :biz_type,
+ :address,
+ :hours,
+ :about,
+ :feature,
+ :phone,
+ :owner_id,
+ :long,
+ :lat

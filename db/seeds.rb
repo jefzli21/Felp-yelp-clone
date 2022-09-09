@@ -36,7 +36,7 @@ ApplicationRecord.transaction do
       about: 'we make you happy and obese',
       feature: 'disability, air condition, accessible ramp',
       phone: 123456789,
-      owner_id: 3,
+      owner_id: 1,
       long: 100,
       lat: 100
     )

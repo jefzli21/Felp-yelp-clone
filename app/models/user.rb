@@ -26,6 +26,11 @@ class User < ApplicationRecord
   
   before_validation :ensure_session_token
 
+  has_many :businesses,
+    foreign_key: :owner_id,
+    dependent: :destroy,
+    inverse_of: :owner
+
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
     user = User.find_by(field => credential)
