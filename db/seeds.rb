@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+require 'open-uri'
+
 ApplicationRecord.transaction do 
     puts "Destroying tables..."
     # Unnecessary if using `rails db:seed:replant`
@@ -26,21 +28,6 @@ ApplicationRecord.transaction do
       password: 'password'
     )
 
-    puts "Creating businesses"
-
-    Business.create!(
-      biz_name: 'McDonalds',
-      biz_type: 'fast food',
-      address: '123 clown street, CA 90024',
-      hours: 'M-T-W-Th-F, 10am - 10pm',
-      about: 'we make you happy and obese',
-      feature: 'disability, air condition, accessible ramp',
-      phone: 123456789,
-      owner_id: 1,
-      long: 100,
-      lat: 100
-    )
-  
     # More users
     10.times do 
       User.create!({
@@ -52,3 +39,57 @@ ApplicationRecord.transaction do
   
     puts "Done!"
   end
+    
+    puts "Creating businesses"
+
+    b1 = Business.create!(
+      biz_name: 'McDonalds',
+      biz_type: '$$ - fast food',
+      address: '123 clown street, CA 90024',
+      hours: 'M-T-W-Th-F, 10am - 10pm',
+      about: 'we make you happy and obese',
+      feature: 'disability, air condition, accessible ramp',
+      phone: 123456789,
+      owner_id: 1,
+      long: 100,
+      lat: 100,
+      website: "www.lmao.com"
+    )
+
+    b1.photo.attach(
+      io: URI.open("https://felp-dev.s3.us-west-1.amazonaws.com/mc.jpg"),
+      filename: "mc.jpg"
+    )
+
+    b2 = Business.create!(
+      biz_name: 'Burger King',
+      biz_type: '$$ - fast food',
+      address: '321 burger street, CA 90024',
+      hours: 'M-T-W-Th-F, 10am - 10pm',
+      about: 'we make you burger and happiness',
+      feature: 'disability, air condition, accessible ramp',
+      phone: 123456789,
+      owner_id: 2,
+      long: 100,
+      lat: 100,
+      website: "www.burgerking.com"
+    )
+
+    b3 = Business.create!(
+      biz_name: 'Wendys',
+      biz_type: '$$ - fast food',
+      address: '423 wend street, CA 90024',
+      hours: 'M-T-W-Th-F, 10am - 10pm',
+      about: 'we make you happy',
+      feature: 'disability, air condition, accessible ramp',
+      phone: 123456789,
+      owner_id: 3,
+      long: 100,
+      lat: 100,
+      website: "www.wendys.com"
+    )
+
+    puts "DONE!"
+
+ 
+  

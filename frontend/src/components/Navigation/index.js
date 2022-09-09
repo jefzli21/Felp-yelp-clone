@@ -24,6 +24,7 @@ function Navigation() {
     sessionLinks = (
       <>
       <li>
+        <button id='login' className='butt' onClick={() => setLoginModal(true)}>Log In</button>
         <LoginFormModal setSignupModal={setSignupModal} showLoginModal={showLoginModal} setLoginModal={setLoginModal} />
         {/* <NavLink to="/login"><button id='login'>Log In</button></NavLink> */}
       </li>

@@ -20,7 +20,7 @@ class Business < ApplicationRecord
     validates :biz_name, :biz_type, :address, :hours, :about, :feature, :phone, :owner_id, :long, :lat, presence: true
     
     belongs_to :owner, class_name: :User
-    # has_many_attached :photos
+    has_one_attached :photo
 
     # def average_rating 
     #     average = reviews.average(:rating)

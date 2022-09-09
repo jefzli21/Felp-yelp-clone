@@ -2,6 +2,7 @@ import csrfFetch from "./csrf.js"
 
 
 const RECEIVE_BUSINESS = 'businesses/RECEIVE_BUSINESS'
+const RECEIVE_BUSINESSES = 'businesses/RECEIVE_BUSINESSES'
 
 // selector functions
 
@@ -15,11 +16,25 @@ export const selectBusiness = businessId => state =>{
     
 } 
 
+export const selectBusinesses = state =>{
+    if(!state.businesses){
+        return []
+    }else{
+        return Object.values(state.businesses)
+    }
+
+}
+
 // thunk action creators
 
 const getBusiness = business => ({
     type: RECEIVE_BUSINESS,
     business
+})
+
+const getBusinesses = businesses => ({
+    type: RECEIVE_BUSINESSES,
+    businesses
 })
 
 
