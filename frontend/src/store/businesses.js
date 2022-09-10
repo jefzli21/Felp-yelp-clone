@@ -27,12 +27,12 @@ export const selectBusinesses = state =>{
 
 // thunk action creators
 
-const getBusiness = business => ({
+export const addBusiness = business => ({
     type: RECEIVE_BUSINESS,
     business
 })
 
-const getBusinesses = businesses => ({
+export const addBusinesses = businesses => ({
     type: RECEIVE_BUSINESSES,
     businesses
 })
@@ -41,7 +41,7 @@ const getBusinesses = businesses => ({
 export const fetchBusiness = businessId => async dispatch =>{
     const res = await csrfFetch(`/api/businesses/${businessId}`);
     const data = await res.json();
-    dispatch(getBusiness(data))
+    dispatch(addBusiness(data))
     return data
 }
 
@@ -55,8 +55,8 @@ export const createBusiness = bizFormData => async dispatch =>{
         }
     })
     const data = await res.json();
-    dispatch(getBusiness(data.business))
-    return res
+    dispatch(addBusiness(data.business))
+    return data
 }
 
 

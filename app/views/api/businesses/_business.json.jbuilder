@@ -13,7 +13,7 @@ json.extract! business,
  :website,
  :photo
 
- json.photo_url business.photo.url 
+ json.photo_url business.photo .url
 
 #  b= Business.first
 

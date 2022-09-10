@@ -1,6 +1,6 @@
 class Api::BusinessesController < ApplicationController
   before_action :require_logged_in, only: :create
-  wrap_parameters include: Business.attribute_names + [:owner_id]
+  wrap_parameters include: Business.attribute_names + [:ownerId]
 
   def show
     @business = Business.find(params[:id])

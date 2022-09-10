@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Navigation2 from "./components/Navigation2";
 import BusinessShowPage from "./components/BusinessShowPage";
+import ReviewForm from "./components/ReviewFormPage";
 
 
 function App() {
@@ -15,6 +16,9 @@ function App() {
           <Route path="/business/:businessId" >
             <Navigation2 />
             <BusinessShowPage />
+          </Route>
+          <Route path="/review/business/:businessId">
+            <ReviewForm/>
           </Route>
         </Switch>
     </>

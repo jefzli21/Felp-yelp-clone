@@ -6,6 +6,7 @@
     font-size: 19px;
     padding: 10px;
     transition: 2s;
+    cursor: pointer;
 }
 
 #login:hover{
@@ -20,6 +21,7 @@
     font-size: 19px;
     padding: 10px;
     transition: 2s;
+    cursor: pointer;
 }
 
 #login2:hover{
