@@ -1,0 +1,35 @@
+.biz-header{
+}
+
+.headfunc{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#biz-name{
+    margin-top: -130px ;
+    color: white;
+    font-size: 60px;
+}
+
+#biz-type{
+    margin-top: -40px;
+    color: white;
+    font-size: 25px;
+}
+
+#write-review{
+    color: white;
+    background-color: rgb(235, 42, 42);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: 1s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}

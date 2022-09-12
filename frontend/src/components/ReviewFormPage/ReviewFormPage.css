@@ -1,0 +1,81 @@
+.review-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+#busname{
+    display: flex;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#review-text{
+    width: 37rem;
+    height: 23rem;
+    font-size: 20px;
+}
+
+#upload{
+    margin-bottom: 20px;
+}
+
+#post-review{
+    color: white;
+    background-color: rgb(235, 42, 42);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: 1s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+#post-review:hover{
+    background-color: red;
+}
+
+
+
+
+
+.rating{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+.rating >input{
+    display: none;
+}
+
+.rating > label {
+    position: relative;
+    width: 1.1em;
+    font-size: 15vw;
+    color: #FFD700;
+    cursor: pointer;
+}
+
+.rating> label:hover::before{
+content: "\2605";
+position: absolute;
+opacity: 0;
+}
+
+.rating> label:hover:before,
+.rating > label:hover ~ label:before{
+    opacity: 1 !important;
+}
+
+.rating >input:checked ~ label:before{
+    opacity: 1;
+}
+
+.rating:hover > input:checked ~ label:before{
+    opacity: 0.4;
+}

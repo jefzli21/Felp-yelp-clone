@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { RECEIVE_BUSINESS} from "./businesses";
 
 
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
@@ -23,17 +24,44 @@ export const addReviews = reviews => ({
     reviews
 })
 
+export const getReview = (authorId,bizId) => state =>{
+    if(!state || !state.reviews){
+        return null;
+    }else{
+        return Object.values(state.reviews).find((review) => review.bizId === bizId && review.authorId === authorId )
+    }
+
+}
+
 
 export const getBizReviews = bizId => state =>{
-    
-    if(!state.reviews){
+    if(!state || !state.reviews){
         return []
     }else{
-        return  Object.values(state.reviews)
+        // if(Object.values(state.reviews).length){
+        //     console.log(Object.values(state.reviews)[0].bizId === parseInt(bizId))
+
+        // }
+
+
+       let obj= Object.values(state.reviews).filter((review)=> review.bizId === parseInt(bizId))
+        return obj
     }
        
     
 };
+
+export const fetchReview = (bizId, authorId) => async dispatch =>{
+    const res = await csrfFetch(`/api/reviews/${bizId}?authorId=${authorId}`);
+    const data = await res.json();
+    dispatch(addReview(data));
+}
+
+// export const fetchReviews = () => async dispatch =>{
+//     const res = await csrfFetch(`/api/reviews`)
+//     const data = await res.json();
+//     dispatch(addReviews(data))
+// }
 
 export const createReview = (review) => async dispatch =>{
     const res = await csrfFetch(`/api/reviews`, {
@@ -71,6 +99,8 @@ function reviewsReducer(state = {}, action) {
     const nextState = {...state}
 
     switch(action.type){
+        case RECEIVE_BUSINESS:
+            return {...nextState, ...action.payload.reviews}
         case ADD_REVIEW: 
             nextState[action.review.id] = action.review;
             return nextState;

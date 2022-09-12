@@ -8,3 +8,18 @@ html,body
     padding: 0px; 
     overflow-x: hidden; 
 } 
+
+
+
+.error{
+    color: red;
+    border-left: 10px red solid;
+    padding: 10px;
+    list-style-type: none;
+    box-shadow: 1px 1px 10px lightgray;
+    border-radius: 10px;
+}
+
+#warning{
+    margin: 10px;
+}

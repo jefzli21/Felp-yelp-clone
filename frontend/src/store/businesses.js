@@ -1,8 +1,8 @@
 import csrfFetch from "./csrf.js"
 
 
-const RECEIVE_BUSINESS = 'businesses/RECEIVE_BUSINESS'
-const RECEIVE_BUSINESSES = 'businesses/RECEIVE_BUSINESSES'
+export const RECEIVE_BUSINESS = 'businesses/RECEIVE_BUSINESS'
+export const RECEIVE_BUSINESSES = 'businesses/RECEIVE_BUSINESSES'
 
 // selector functions
 
@@ -27,9 +27,9 @@ export const selectBusinesses = state =>{
 
 // thunk action creators
 
-export const addBusiness = business => ({
+export const addBusiness = payload => ({
     type: RECEIVE_BUSINESS,
-    business
+    payload
 })
 
 export const addBusinesses = businesses => ({
@@ -66,7 +66,7 @@ function businessReducer(state={},action) {
     // debugger
     switch(action.type){
         case RECEIVE_BUSINESS:
-            nextState[action.business.id] = action.business
+            nextState[action.payload.business.id] = action.payload.business
             return nextState;
         default:
             return state;

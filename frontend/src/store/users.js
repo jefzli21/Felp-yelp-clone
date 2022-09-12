@@ -11,6 +11,16 @@ export const addUsers = (users) => ({
   payload: users
 });
 
+export const getUser = (userId) => state =>{
+  if(!state || !state.users){
+    return null;
+}else{
+    return state.users[userId]
+}
+
+}
+
+
 function usersReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {

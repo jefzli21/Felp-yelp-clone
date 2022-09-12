@@ -39,11 +39,14 @@ function LoginForm({setSignupModal, setLoginModal}) {
     <>
     <div className="loginmo">
 
+        <ul>
+          {errors.map(error => <li key={error} className='error'>
+          <i class="fa-solid fa-circle-exclamation" id="warning"></i>
+          The email address or password you entered is incorrect.
+          </li>)}
+        </ul>
       <h1 id="logmo">Log In to Felp</h1>
       <form onSubmit={handleSubmit} className='inputform'>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
           <input
             className="inputbox"
             type="text"

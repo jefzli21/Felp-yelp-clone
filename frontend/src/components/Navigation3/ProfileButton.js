@@ -39,7 +39,6 @@ function ProfileButton({ user }) {
         <ul className="profile-dropdown">
           <li><i id='icons' className="fa-solid fa-users-line"></i>About</li>
           <li id='logout'>
-          {/* <i id='icons' className="fa-solid fa-person-walking"></i> */}
             <button id="logoutbutt" onClick={logout}><i id='icons' className="fa-solid fa-person-walking"></i>Log Out</button>
           </li>
         </ul>

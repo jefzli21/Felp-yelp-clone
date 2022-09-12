@@ -4,6 +4,7 @@ import Navigation from "./components/Navigation";
 import Navigation2 from "./components/Navigation2";
 import BusinessShowPage from "./components/BusinessShowPage";
 import ReviewForm from "./components/ReviewFormPage";
+import Navigation3 from "./components/Navigation3";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
             <BusinessShowPage />
           </Route>
           <Route path="/review/business/:businessId">
+            <Navigation3/>
             <ReviewForm/>
           </Route>
         </Switch>

@@ -1,11 +1,20 @@
 class Api::ReviewsController < ApplicationController
     before_action :require_logged_in
     wrap_parameters include: Review.attribute_names + [:reviewId]
-    
+
+    def show
+        @review = Review.find_by(biz_id: params[:id], author_id: params[:author_id])
+        if @review
+            render :show
+        else
+            render json: {}
+        end
+        
+    end
 
     def create
         @review = Review.new(review_params)
-        if @review.save
+        if @review.save!
             render :show
         else
             render json: { errors: @review.errors.full_messages}, status: 422
