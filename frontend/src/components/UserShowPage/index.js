@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import './UserShowPage.css'
 import imgdefault from './default.png'
-import { useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams, Link } from "react-router-dom";
 import { fetchReviews, getAuthorReviews } from "../../store/reviews";
 import { useEffect } from "react";
 import StaticRating from "../StaticRating";
@@ -46,9 +46,9 @@ function UserShowPage() {
         <ul>
         {reviewsData.map((review) => (
           <li key={review.authorId}>
-            <h2>{review.business}</h2>
+            <h2><Link to={`/business/${review.bizId}`}>{review.business}</Link></h2>
             <div className="stars-date">
-            <p>{review.createdAt}</p>
+            <p>Commented On {review.createdAt}</p>
             <StaticRating rating={review.rating}/>
             </div>
             <p>{review.body}</p>

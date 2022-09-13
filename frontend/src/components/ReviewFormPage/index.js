@@ -29,8 +29,23 @@ function ReviewForm() {
 
   const type = reviewData ? "update" : "create";
 
+
+  // AWS
+
+  const reader = new FileReader();
+  // const file = e.currentTarget.files[0]
+  // reader.onloadend = () =>
+
+  // 
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    // AWS
+
+    
+    //
+    
     if (!sessionUser) {
       return setLoginModal(true);
     }else{
@@ -96,7 +111,7 @@ function ReviewForm() {
 
           <div id="upload">
             <h1>Attach Photos</h1>
-            <textarea></textarea>
+            <input type="file" onChange={e => this.setState({ photos: e.target.files })} multiple/>
           </div>
 
           <button type="submit" id="post-review">

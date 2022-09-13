@@ -69,6 +69,7 @@ export const getAuthorReviews = authorId => state =>{
     
 }
 
+
 export const fetchReview = (bizId, authorId) => async dispatch =>{
     const res = await csrfFetch(`/api/reviews/${bizId}?authorId=${authorId}`);
     const data = await res.json();

@@ -92,4 +92,10 @@ ApplicationRecord.transaction do
     puts "DONE!"
 
  
-  
+  r1 = Review.create!(
+    rating: 3,
+    body: 'I dont really like fast food honestly',
+    biz_id: 1,
+    author_id: 1,
+    
+  )
