@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { selectBusiness, fetchBusiness } from "../../store/businesses";
 import {
   createReview,
@@ -14,6 +14,7 @@ import StarRating from "../Rating";
 
 // {business}
 function ReviewForm() {
+  const history = useHistory();
   const dispatch = useDispatch();
   const { businessId } = useParams();
   const bizData = useSelector(selectBusiness(businessId));
@@ -45,6 +46,7 @@ function ReviewForm() {
         } else {
           dispatch(updateReview({ ...reviewData, rating, body }));
         }
+       history.push(`/business/${businessId}`)
       }
   };
 
@@ -69,9 +71,6 @@ function ReviewForm() {
     return null;
   }
 
-  // if(!reviewData){
-  //   return null;
-  // }
 
   return (
     <>

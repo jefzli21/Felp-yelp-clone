@@ -3,26 +3,29 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectBusiness, fetchBusiness } from "../../store/businesses";
 import { Link, useParams } from "react-router-dom";
 import "./BusinessShowPage.css";
-import { fetchReviews, getBizReviews } from "../../store/reviews";
+import { deleteReview, getBizReviews } from "../../store/reviews";
+import StaticRating from "../StaticRating";
+
 
 function BusinessShowPage() {
   const dispatch = useDispatch();
   const { businessId } = useParams();
   const bizData = useSelector(selectBusiness(businessId));
-  const reviewsData = useSelector(getBizReviews(businessId))
-  
+  const reviewsData = useSelector(getBizReviews(businessId));
+  const sessionUser = useSelector((state) => state.session.user);
+
+ 
+
   useEffect(() => {
     dispatch(fetchBusiness(businessId));
   }, [businessId]);
-  
-  
+
   if (!bizData) {
     return null;
   }
 
-  console.log(reviewsData)
+  console.log(reviewsData);
 
-  
   return (
     <>
       {/* place holder for 2nd Version NavBar */}
@@ -40,10 +43,10 @@ function BusinessShowPage() {
       </div>
       {/* Buttons- write a review */}
       <div className="functional">
-            <Link to={`/review/business/${businessId}`} id="write-review">
-            <i className="fa-regular fa-star"></i>
-                Write a review
-                </Link>
+        <Link to={`/review/business/${businessId}`} id="write-review">
+          <i className="fa-regular fa-star"></i>
+          Write a review
+        </Link>
       </div>
 
       {/* location and hours */}
@@ -66,15 +69,17 @@ function BusinessShowPage() {
       {/* <h1>{bizData.ownerId}</h1> */}
 
       <h1>Reviews</h1>
-      {reviewsData.map((review)=>(
-        <>
-        <h2 key={review.id}>{review.author}</h2>
-        <h2 key={review.id}>{review.rating}</h2>
-        <p key={review.id}>{review.body}</p>
 
-        </>
-      ))}
-      
+      <ul>
+        {reviewsData.map((review) => (
+          <li key={review.authorId}>
+            <h2>{review.author}</h2>
+            <StaticRating rating={review.rating}/>
+            <p>{review.body}</p>
+            {sessionUser ? <button onClick={() => dispatch(deleteReview(review.id))}>Delete Post</button> : <p></p>}
+          </li>
+        ))}
+      </ul>
     </>
   );
 }

@@ -24,6 +24,8 @@ class Api::ReviewsController < ApplicationController
     def update
         # @review = current_user.reviews.find(params[:id])
         @review = Review.find(params[:id])
+        # @review = Review.find_by(biz_id: params[:id], author_id: params[:author_id])
+
         if @review.update(review_params)
             render :show
         else
@@ -33,8 +35,10 @@ class Api::ReviewsController < ApplicationController
     
 
     def destroy
-        # @review = current_user.reviews.find(params[:id])
-        @review = Review.find(params[:id])
+        @review = current_user.reviews.find(params[:id])
+        # @review = Review.find_by(biz_id: params[:id], author_id: params[:author_id])
+
+        # @review = Review.find(params[:id])
         if !@review
             render json: {message: 'Unauthorized'}, status: 401
             return
