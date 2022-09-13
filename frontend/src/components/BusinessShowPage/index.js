@@ -14,8 +14,15 @@ function BusinessShowPage() {
   const reviewsData = useSelector(getBizReviews(businessId));
   const sessionUser = useSelector((state) => state.session.user);
 
- 
+  let totalRating = 0;
+  
+  reviewsData.map((review) => (
+    totalRating += review.rating
+    ))
+    
+    let averageRating = totalRating/reviewsData.length
 
+    
   useEffect(() => {
     dispatch(fetchBusiness(businessId));
   }, [businessId]);
@@ -24,7 +31,7 @@ function BusinessShowPage() {
     return null;
   }
 
-  console.log(reviewsData);
+  // console.log(reviewsData);
 
   return (
     <>
@@ -50,6 +57,7 @@ function BusinessShowPage() {
       </div>
 
       {/* location and hours */}
+            <StaticRating rating={averageRating} />
       <h1>{bizData.address}</h1>
       <h1>{bizData.long}</h1>
       <h1>{bizData.lat}</h1>
@@ -72,16 +80,23 @@ function BusinessShowPage() {
 
       <ul>
         {reviewsData.map((review) => (
+          
           <li key={review.authorId}>
             <h2>{review.author}</h2>
+            <div className="stars-date">
+            <p>{review.createdAt}</p>
             <StaticRating rating={review.rating}/>
+
+            </div>
             <p>{review.body}</p>
-            {sessionUser ? <button onClick={() => dispatch(deleteReview(review.id))}>Delete Post</button> : <p></p>}
+            {(sessionUser ? sessionUser.id : null) === review.authorId ? <button onClick={() => dispatch(deleteReview(review.id))}>Delete Post</button> : <p></p>}
           </li>
         ))}
       </ul>
     </>
   );
+
+
 }
 
 export default BusinessShowPage;

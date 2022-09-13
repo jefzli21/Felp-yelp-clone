@@ -1,4 +1,4 @@
-const ADD_USER = 'users/addUser';
+export const ADD_USER = 'users/addUser';
 const ADD_USERS = 'users/addUsers';
 
 export const addUser = (user) => ({

@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf";
 import { RECEIVE_BUSINESS} from "./businesses";
+import { ADD_USER } from "./users";
 
 
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
@@ -39,17 +40,34 @@ export const getBizReviews = bizId => state =>{
         return []
     }else{
         // if(Object.values(state.reviews).length){
-        //     console.log(Object.values(state.reviews)[0].bizId === parseInt(bizId))
-
+            
+            // console.log(Object.values(state.reviews)[0].bizId === parseInt(bizId))
         // }
+        // console.log(Object.values(state.reviews).filter((review) => review.bizId))
+
 
 
        let obj= Object.values(state.reviews).filter((review)=> review.bizId === parseInt(bizId))
+    //    console.log(obj)
         return obj
     }
-       
-    
 };
+
+export const getAuthorReviews = authorId => state =>{
+    if(!state || !state.reviews){
+        return []
+    }else{
+        // if(Object.values(state.reviews).length){
+
+            // console.log(Object.values(state.reviews)[0])
+        // }
+        // console.log(Object.values(state.reviews).filter((review)=> review.authorId === 1))
+        
+        let ov= Object.values(state.reviews).filter((review)=> review.authorId === parseInt(authorId))
+         return ov
+    }
+    
+}
 
 export const fetchReview = (bizId, authorId) => async dispatch =>{
     const res = await csrfFetch(`/api/reviews/${bizId}?authorId=${authorId}`);
@@ -57,11 +75,13 @@ export const fetchReview = (bizId, authorId) => async dispatch =>{
     dispatch(addReview(data));
 }
 
-// export const fetchReviews = () => async dispatch =>{
-//     const res = await csrfFetch(`/api/reviews`)
-//     const data = await res.json();
-//     dispatch(addReviews(data))
-// }
+export const fetchReviews = () => async dispatch =>{
+    const res = await csrfFetch(`/api/reviews`)
+    const data = await res.json();
+    dispatch(addReviews(data))
+    // console.log(data)
+    return data
+}
 
 export const createReview = (review) => async dispatch =>{
     const res = await csrfFetch(`/api/reviews`, {

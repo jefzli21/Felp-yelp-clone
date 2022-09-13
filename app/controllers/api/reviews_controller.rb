@@ -9,7 +9,12 @@ class Api::ReviewsController < ApplicationController
         else
             render json: {}
         end
-        
+    end
+
+    def index
+        @reviews = Review.all
+        render :index
+  
     end
 
     def create

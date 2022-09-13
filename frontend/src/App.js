@@ -5,15 +5,13 @@ import Navigation2 from "./components/Navigation2";
 import BusinessShowPage from "./components/BusinessShowPage";
 import ReviewForm from "./components/ReviewFormPage";
 import Navigation3 from "./components/Navigation3";
+import UserShowPage from "./components/UserShowPage";
 
 
 function App() {
   return (
     <>
         <Switch>
-          <Route exact path="/">
-          <Navigation />
-          </Route>
           <Route path="/business/:businessId" >
             <Navigation2 />
             <BusinessShowPage />
@@ -22,6 +20,14 @@ function App() {
             <Navigation3/>
             <ReviewForm/>
           </Route>
+          <Route path="/users/:authorId">
+          <Navigation2 />
+          <UserShowPage />
+          </Route>
+          <Route exact path="/">
+          <Navigation />
+          </Route>
+
         </Switch>
     </>
   );

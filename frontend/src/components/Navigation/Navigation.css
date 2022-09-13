@@ -22,6 +22,11 @@
 
 /* Logged In */
 
+#aboutme{
+  text-decoration: none;
+   color: black;
+}
+
 #profile{
     width: 70px;
     height: 70px;

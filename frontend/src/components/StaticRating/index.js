@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React from "react";
 import { FaStar } from 'react-icons/fa'
 
 
@@ -13,6 +13,7 @@ const StaticRating = ({rating}) =>{
         const ratingValue = i 
        return (
         <FaStar 
+        key={ratingValue}
         values={ratingValue}
         color={(ratingValue >= rating) ? "#e4e5e9" :"#ffc107"} 
         size={50}
