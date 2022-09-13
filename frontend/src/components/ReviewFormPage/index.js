@@ -24,6 +24,7 @@ function ReviewForm() {
     sessionUser ? getReview(sessionUser.id, +businessId) : getReview(null)
   );
 
+  const [errors, setErrors] = useState([]);
   const [rating, setRating] = useState(1);
   const [body, setBody] = useState("");
 
@@ -41,28 +42,57 @@ function ReviewForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+<<<<<<< HEAD
     // AWS
 
     
     //
     
+=======
+>>>>>>> review
     if (!sessionUser) {
       return setLoginModal(true);
-    }else{
+    } else {
       if (type === "create") {
         dispatch(
           createReview({
             rating,
             body,
             biz_id: businessId,
-            author_id: sessionUser.id
+            author_id: sessionUser.id,
           })
-          );
-        } else {
-          dispatch(updateReview({ ...reviewData, rating, body }));
-        }
-       history.push(`/business/${businessId}`)
+        ).catch(async (res) => {
+          let data;
+          try {
+            // .clone() essentially allows you to read the response body twice
+            data = await res.clone().json();
+          } catch {
+            data = await res.text(); // Will hit this case if, e.g., server is down
+          }
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data]);
+          else setErrors([res.statusText]);
+        });
+      } else {
+        dispatch(updateReview({ ...reviewData, rating, body })).catch(
+          async (res) => {
+            let data;
+            try {
+              // .clone() essentially allows you to read the response body twice
+              data = await res.clone().json();
+            } catch {
+              data = await res.text(); // Will hit this case if, e.g., server is down
+            }
+            if (data?.errors) setErrors(data.errors);
+            else if (data) setErrors([data]);
+            else setErrors([res.statusText]);
+          }
+        );
       }
+    }
+    if (body) {
+      history.push(`/business/${businessId}`);
+    }
   };
 
   useEffect(() => {
@@ -70,7 +100,7 @@ function ReviewForm() {
   }, [businessId]);
 
   useEffect(() => {
-    if(sessionUser){
+    if (sessionUser) {
       dispatch(fetchReview(businessId, sessionUser.id));
     }
   }, [sessionUser]);
@@ -86,10 +116,16 @@ function ReviewForm() {
     return null;
   }
 
-
   return (
     <>
       <div className="review-page">
+        <ul>
+          {errors.map((error) => (
+            <li key={error} className="error">
+              {error}
+            </li>
+          ))}
+        </ul>
         <form onSubmit={handleSubmit} className="reviewform">
           <h1 id="busname">{bizData.bizName}</h1>
           <div className="rating">
