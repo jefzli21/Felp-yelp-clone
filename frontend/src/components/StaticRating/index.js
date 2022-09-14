@@ -13,10 +13,11 @@ const StaticRating = ({rating}) =>{
         const ratingValue = i 
        return (
         <FaStar 
+        className="star"
         key={ratingValue}
         values={ratingValue}
         color={(ratingValue >= rating) ? "#e4e5e9" :"#ffc107"} 
-        size={50}
+        size={30}
         />
         
        )

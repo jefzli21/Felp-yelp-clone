@@ -14,7 +14,7 @@ function UserShowPage() {
     const {authorId} = useParams();
     const reviewsData = useSelector(getAuthorReviews(authorId));
     const sessionUser = useSelector(state => state.session.user)
-    console.log(authorId)
+    // console.log(reviewsData)
 
     useEffect(()=>{
       
@@ -22,17 +22,18 @@ function UserShowPage() {
     },[authorId])
     
     if(!reviewsData)return null;
-    // console.log(reviewsData)
     
     if(!sessionUser){
         history.push(`/`)
     }else{
     return(
     <>
-        <div className="user-title">
+    <div className="everything" >
+
+        <div className="user-title" >
             <div className="profilehead">
                 <div className="addpic">
-        <button id="adp"><i className="fa-solid fa-camera"></i>Add a photo</button>
+        {/* <button id="adp"><i className="fa-solid fa-camera"></i>Add a photo</button> */}
         <img src={imgdefault} id="profilepic" width="200vw" height="200vh" />
                 </div>
                 <div>
@@ -42,23 +43,37 @@ function UserShowPage() {
             </div>
         <p></p>
         </div>
+    
+      <div id="bot-back">
 
-        <ul>
+        <ul className="all-reviews" >
         {reviewsData.map((review) => (
-          <li key={review.authorId}>
+          <div className="user-review" key={review.bizId}>
             <h2><Link to={`/business/${review.bizId}`}>{review.business}</Link></h2>
+
             <div className="stars-date">
-            <p>Commented On {review.createdAt}</p>
-            <StaticRating rating={review.rating}/>
+            <p id="create-date">
+            Commented On {new Intl.DateTimeFormat('en-GB', { 
+              month: 'long', 
+              day: '2-digit',
+              year: 'numeric', 
+            }).format(new Date(review.createdAt))}
+            </p>
+            <StaticRating  rating={review.rating}/>
             </div>
-            <p>{review.body}</p>
-            <div>
-                pics
-            </div>
-          </li>
+            <p id="review-body">{review.body}</p>
+            <ul className="review-pics">
+                {review.photoUrls.map((pic,i)=>(
+                  <li key={i+1000}>
+                    <img className="review-pic" src={`${pic}`} alt='' width="180vw" height="180vh"></img>
+                  </li>
+                ))}
+            </ul>
+          </div>
         ))}
       </ul>
-
+    </div>
+    </div>
     </>
     )
 }

@@ -1,3 +1,3 @@
 json.partial! 'review', review: @review
 
-json.photoUrls @review.photos.map { |file| url_for(file)}
+json.photo_urls @review.photos.map { |photo| photo.url}

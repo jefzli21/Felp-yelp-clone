@@ -29,6 +29,7 @@ function ReviewForm() {
   const [body, setBody] = useState("");
 
   const type = reviewData ? "update" : "create";
+  
 
 
   // AWS
@@ -42,14 +43,15 @@ function ReviewForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-<<<<<<< HEAD
     // AWS
+    // const formData = new FormData();
+    // formData.append('review[rating]', review.rating);
+    // formData.append('review[body]',review.body);
+    // formData.append('review[photos]', review.photos);
 
     
     //
     
-=======
->>>>>>> review
     if (!sessionUser) {
       return setLoginModal(true);
     } else {
@@ -73,6 +75,10 @@ function ReviewForm() {
           else if (data) setErrors([data]);
           else setErrors([res.statusText]);
         });
+
+      //   if (body) {
+      //     history.push(`/business/${businessId}`);
+      // }
       } else {
         dispatch(updateReview({ ...reviewData, rating, body })).catch(
           async (res) => {
@@ -89,9 +95,10 @@ function ReviewForm() {
           }
         );
       }
+      
+      if (body) {
+        history.push(`/business/${businessId}`);
     }
-    if (body) {
-      history.push(`/business/${businessId}`);
     }
   };
 
@@ -128,12 +135,13 @@ function ReviewForm() {
         </ul>
         <form onSubmit={handleSubmit} className="reviewform">
           <h1 id="busname">{bizData.bizName}</h1>
-          <div className="rating">
+            
+          <div className="rate">
             <StarRating
               className="rating"
               rating={rating}
               setRating={setRating}
-            />
+              />
           </div>
 
           <div className="review-body">
@@ -142,7 +150,7 @@ function ReviewForm() {
               value={body}
               placeholder="This is the best mcdonald's i have ever been to. Their Big MAC is crazzzzy good, not to mention the filet-O-fish. Its all just mind bloawing"
               onChange={(e) => setBody(e.target.value)}
-            ></textarea>
+              />
           </div>
 
           <div id="upload">

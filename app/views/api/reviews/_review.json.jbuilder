@@ -6,3 +6,4 @@ json.extract! review,
 :author_id,
 :created_at
 
+# json.photos_url review.photos.url

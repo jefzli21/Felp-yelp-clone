@@ -22,10 +22,15 @@ ApplicationRecord.transaction do
 
     puts "Creating users..."
     # Create one user with an easy to remember username, email, and password:
-    User.create!(
+    u1 = User.create!(
       username: 'foodhelper', 
       email: 'foodhelper@user.io', 
       password: 'password'
+    )
+
+    u1.photo.attach(
+      io: URI.open("https://felp-dev.s3.us-west-1.amazonaws.com/default.png"),
+      filename: "default.png"
     )
 
     # More users
@@ -99,3 +104,25 @@ ApplicationRecord.transaction do
     author_id: 1,
     
   )
+
+  r2 = Review.create!(
+    rating: 4,
+    body: 'I love burgers and fries, but their staff arent that friendly',
+    biz_id: 1,
+    author_id: 2
+  )
+
+  puts "Creating Review"
+
+  mc = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc.jpg'), filename:'mc.jpg'}
+  mc1 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc1.jpg'), filename:'mc1.jpg'}
+  mc2 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc2.jpg'), filename:'mc2.jpg'}
+  mc3 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc3.jpg'), filename:'mc3.jpg'}
+  mc4 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc4.jpg'), filename:'mc4.jpg'}
+  mc5 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc5.jpg'), filename:'mc5.jpg'}
+  mc6 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/mcdonald/mc6.png'), filename:'mc6.png'}
+
+  r1.photos.attach([mc,mc1,mc2,mc3])
+  r2.photos.attach([mc4,mc5,mc6])
+  puts "Attaching Photos"
+  puts "Done!"

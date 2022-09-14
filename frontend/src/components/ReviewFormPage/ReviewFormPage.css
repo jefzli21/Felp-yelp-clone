@@ -12,12 +12,16 @@
 
 #review-text{
     width: 37rem;
-    height: 23rem;
+    height: 17rem;
     font-size: 20px;
+    padding-top: 6rem;
+    padding-left: 1rem;
+    /* margin-top: -10rem; */
 }
 
 #upload{
     margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #post-review{
@@ -41,41 +45,12 @@
 
 
 
-
-
-.rating{
+.rate{
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
-}
-
-.rating >input{
-    display: none;
-}
-
-.rating > label {
+    justify-content: left;
+    margin-bottom: -5rem;
+    margin-left: 1rem;
     position: relative;
-    width: 1.1em;
-    font-size: 15vw;
-    color: #FFD700;
-    cursor: pointer;
+    z-index: 0;
 }
 
-.rating> label:hover::before{
-content: "\2605";
-position: absolute;
-opacity: 0;
-}
-
-.rating> label:hover:before,
-.rating > label:hover ~ label:before{
-    opacity: 1 !important;
-}
-
-.rating >input:checked ~ label:before{
-    opacity: 1;
-}
-
-.rating:hover > input:checked ~ label:before{
-    opacity: 0.4;
-}

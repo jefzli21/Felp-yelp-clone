@@ -23,3 +23,13 @@ html,body
 #warning{
     margin: 10px;
 }
+
+
+ul,li{
+    list-style: none;
+}
+
+#create-date{
+    font-size: 18px;
+    color: gray;
+}

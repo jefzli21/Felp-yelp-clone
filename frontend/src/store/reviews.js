@@ -1,6 +1,5 @@
 import csrfFetch from "./csrf";
 import { RECEIVE_BUSINESS} from "./businesses";
-import { ADD_USER } from "./users";
 
 
 const ADD_REVIEW = 'reviews/ADD_REVIEW'
@@ -112,7 +111,10 @@ export const deleteReview = (reviewId) => async dispatch =>{
     const res = await csrfFetch(`/api/reviews/${reviewId}`,{
         method: 'DELETE'
     });
-    dispatch(removeReview(reviewId));
+    if(res.ok){
+        dispatch(removeReview(reviewId));
+    }
+    
 }
 
 

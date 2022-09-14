@@ -5,4 +5,8 @@ input[type="radio"] {
 .star{
     cursor: pointer;
     transition: color 200ms;
+    margin: 2px;
+    border-radius: 10px;
+    background-color: #f15c5c;
+    padding: 5px;
 }

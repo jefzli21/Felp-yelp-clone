@@ -52,6 +52,7 @@
     flex-direction: column;
     justify-content: left;
     padding-left: 40px;
+    z-index: 100;
 }
 
 .profile-dropdown > li{
