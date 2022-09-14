@@ -6,6 +6,7 @@ import "./BusinessShowPage.css";
 import { deleteReview, getBizReviews } from "../../store/reviews";
 import StaticRating from "../StaticRating";
 import imgdefault from '../UserShowPage/default.png'
+import GMap from "../GMap";
 
 
 function BusinessShowPage() {
@@ -15,6 +16,9 @@ function BusinessShowPage() {
   const reviewsData = useSelector(getBizReviews(businessId));
   const sessionUser = useSelector((state) => state.session.user);
 
+  
+
+  // console.log(location)
   // average rating
   let totalRating = 0;
   reviewsData.map((review) => (totalRating += review.rating));
@@ -27,7 +31,6 @@ function BusinessShowPage() {
   //button
   let button = "Write a Review";
   reviewsData.map((review) => {
-    console.log(review.authorId)
     if(sessionUser && review.authorId === sessionUser.id){
       button = "Edit Review"
     }
@@ -41,6 +44,13 @@ function BusinessShowPage() {
   if (!bizData) {
     return null;
   }
+
+  const location = {
+    address: bizData.address,
+    lat: bizData.lat,
+    lng: bizData.long
+  }
+  console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
 
   return (
     <>
@@ -71,6 +81,7 @@ function BusinessShowPage() {
         </div>
         {/* Buttons- write a review */}
         <div className="core-info">
+          <div className="left">
         <div className="functional">
           <Link to={`/review/business/${businessId}`} id="write-review">
             <i className="fa-regular fa-star"></i> {button}
@@ -81,21 +92,21 @@ function BusinessShowPage() {
 
         </div>
         {/* location and hours */}
-        <h1>{bizData.address}</h1>
-        <h1>{bizData.long}</h1>
-        <h1>{bizData.lat}</h1>
-        <h1>{bizData.hours}</h1>
+        <h1>Location and Hours</h1>
+        <div className="location-hours">
+        <div className="map">
+        <GMap location={location}/>
+        <p>{bizData.address}</p>
+        </div>
+        <p id="hours">{bizData.hours}</p>
+        </div>
 
         <h1>{bizData.feature}</h1>
 
         <h1>About the Business</h1>
         <h1>{bizData.about}</h1>
 
-        <div className="side-info">
-          <p className="side-item">{bizData.website}</p>
-          <p className="side-item">{bizData.phone}</p>
-          <p className="side-item">{bizData.address}</p>
-        </div>
+    
 
         {/* <h1>{bizData.ownerId}</h1> */}
 
@@ -140,6 +151,12 @@ function BusinessShowPage() {
             </div>
           ))}
         </ul>
+        </div>
+        <div className="right">
+          <p className="side-item">{bizData.website}</p>
+          <p className="side-item">{bizData.phone}</p>
+          <p className="side-item">{bizData.address}</p>
+        </div>
       </div>
     </div>
     </>

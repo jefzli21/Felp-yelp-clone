@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resource :session, only: [:show, :create, :destroy]
     resources :businesses, only: [:show, :create]
     resources :reviews, only: [:index,:create, :update, :destroy, :show]
+    get '/search', 
   end
 
   

@@ -56,8 +56,8 @@ ApplicationRecord.transaction do
       feature: 'disability, air condition, accessible ramp',
       phone: 123456789,
       owner_id: 1,
-      long: 100,
-      lat: 100,
+      long: -122.39909297680323,
+      lat: 37.79418128176647,
       website: "www.lmao.com"
     )
 

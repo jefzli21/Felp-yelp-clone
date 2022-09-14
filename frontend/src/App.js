@@ -6,9 +6,10 @@ import BusinessShowPage from "./components/BusinessShowPage";
 import ReviewForm from "./components/ReviewFormPage";
 import Navigation3 from "./components/Navigation3";
 import UserShowPage from "./components/UserShowPage";
-
+import GMap from "./components/GMap";
 
 function App() {
+  
   return (
     <>
         <Switch>
@@ -23,6 +24,9 @@ function App() {
           <Route path="/users/:authorId">
           <Navigation2 />
           <UserShowPage />
+          </Route>
+          <Route path="/search/:query">
+      
           </Route>
           <Route exact path="/">
           <Navigation />
