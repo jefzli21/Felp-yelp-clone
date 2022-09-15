@@ -49,24 +49,22 @@ function ReviewForm() {
     const formData = new FormData();
     formData.append('review[rating]', rating);
     formData.append('review[body]', body);
-    // formData.append('review[photos]', photos);
     formData.append('review[bizId]', businessId);
     formData.append('review[authorId',sessionUser.id);
-
     for( let i=0; i< photos.length; i++){
       formData.append("review[photos][]", photos[i]);
     }
 
-    const editFormData = new FormData();
-    editFormData.append('review[rating]', rating);
-    editFormData.append('review[body]', body);
-    editFormData.append('review[bizId]', businessId);
-    editFormData.append('review[authorId',sessionUser.id);
-    for( let i=0; i< photos.length; i++){
-      editFormData.append("review[photos][]", photos[i]);
-    }
+    // const editFormData = new FormData();
+    // editFormData.append('review[rating]', rating);
+    // editFormData.append('review[body]', body);
+    // editFormData.append('review[bizId]', businessId);
+    // editFormData.append('review[authorId',sessionUser.id);
+    // for( let i=0; i< photos.length; i++){
+    //   editFormData.append("review[photos][]", photos[i]);
+    // }
     
-    console.log(editFormData)
+    // console.log(editFormData)
     // dispatch(updateReview({ ...reviewData, body, rating })).catch(
 
 
@@ -95,7 +93,7 @@ function ReviewForm() {
       //     history.push(`/business/${businessId}`);
       // }
       } else {
-        dispatch(updateReview({...reviewData, ...editFormData})).catch(
+        dispatch(updateReview({...reviewData, rating, body})).catch(
           async (res) => {
             let data;
             try {
@@ -111,9 +109,9 @@ function ReviewForm() {
         );
       }
       
-      if (body) {
-        history.push(`/business/${businessId}`);
-    }
+      // if (body) {
+      //   history.push(`/business/${businessId}`);
+    // }
     }
   };
 

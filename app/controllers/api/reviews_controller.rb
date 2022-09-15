@@ -31,7 +31,7 @@ class Api::ReviewsController < ApplicationController
         # @review = current_user.reviews.find(params[:id])
         @review = Review.find(params[:id])
         # @review = Review.find_by(biz_id: params[:id], author_id: params[:author_id])
-        @review.author_id = current_user.id
+        # @review.author_id = current_user.id
         if @review.update!(review_params)
             render :show
         else

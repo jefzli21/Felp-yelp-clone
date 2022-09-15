@@ -84,11 +84,11 @@ export const fetchReviews = () => async dispatch =>{
 }
 
 export const createReview = (review) => async dispatch =>{
-    const res = await fetch(`/api/reviews`, {
+    const res = await csrfFetch(`/api/reviews`, {
         method: 'POST',
-        // body: JSON.stringify(review)
-        headers: { 'X-CSRF-Token': sessionStorage.getItem('X-CSRF-Token')},
-        body: review
+        body: JSON.stringify(review),
+        // headers: { 'X-CSRF-Token': sessionStorage.getItem('X-CSRF-Token')},
+        // body: review
     });
 
     const data = await res.json();
