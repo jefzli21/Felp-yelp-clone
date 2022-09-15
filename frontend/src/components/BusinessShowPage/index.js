@@ -76,6 +76,7 @@ function BusinessShowPage() {
               <h1 id="biz-type">{bizData.bizType}</h1>
               <StaticRating rating={averageRating} />
             </div>
+            <p></p>
           </div>
         </div>
         {/* Buttons- write a review */}

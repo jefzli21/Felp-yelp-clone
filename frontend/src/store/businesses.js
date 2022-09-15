@@ -37,6 +37,18 @@ export const addBusinesses = businesses => ({
     businesses
 })
 
+export const fetchQueryBusinesses = (query) => async dispatch => {
+    const res = await csrfFetch(`/api/search/${query}`)
+    if(res.ok){
+        const data = await res.json();
+        console.log(data)
+        dispatch(addBusinesses(data))
+    }else{
+        throw res
+    }
+}
+
+
 
 export const fetchBusiness = businessId => async dispatch =>{
     const res = await csrfFetch(`/api/businesses/${businessId}`);
@@ -64,6 +76,8 @@ function businessReducer(state={},action) {
         case RECEIVE_BUSINESS:
             nextState[action.payload.business.id] = action.payload.business
             return nextState;
+        case RECEIVE_BUSINESSES:
+            return {...action.businesses}
         default:
             return state;
     }

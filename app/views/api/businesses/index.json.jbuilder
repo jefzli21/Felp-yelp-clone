@@ -1,8 +1,6 @@
 
-# @businesses.each do |business|
-#     json.set! review.id do
-#         json.partial! 'review', review: review
-#         json.business review.business.biz_name
-#         json.photo_urls review.photos.map{|photo| photo.url}
-#     end
-# end
+@businesses.each do |business|
+    json.set! business.id do
+        json.partial! 'business', business: business
+    end
+end

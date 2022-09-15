@@ -7,6 +7,7 @@ import ReviewForm from "./components/ReviewFormPage";
 import Navigation3 from "./components/Navigation3";
 import UserShowPage from "./components/UserShowPage";
 import GMap from "./components/GMap";
+import BusinessIndexPage from "./components/BusinessIndexPage";
 
 function App() {
   
@@ -26,7 +27,8 @@ function App() {
           <UserShowPage />
           </Route>
           <Route path="/search/:query">
-      
+          <Navigation2 />
+          <BusinessIndexPage />
           </Route>
           <Route exact path="/">
           <Navigation />

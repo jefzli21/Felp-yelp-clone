@@ -2,9 +2,15 @@ class Api::BusinessesController < ApplicationController
   before_action :require_logged_in, only: :create
   wrap_parameters include: Business.attribute_names + [:ownerId]
 #get request, /api/businesses?query= banana
-  def index
-    # @business = Business.where("biz_name like ? " params[:query]).where("biz_type like ? " params[:query])
+
+  def search
+    query = params[:query]
+    @businesses = Business.where("biz_name ILIKE ? OR biz_type ILIKE ?", "%#{query}%", "%#{query}%")
+    if @businesses.length > 0
     render :index
+    else
+      render json: ["No results for %#{query}% "], status: 404
+    end
   end
 
   def show

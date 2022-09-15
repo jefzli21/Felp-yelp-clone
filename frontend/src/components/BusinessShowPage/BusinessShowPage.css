@@ -1,19 +1,17 @@
 .biz-header{
 }
 
-.headfunc{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-left: -41rem;
-    margin-top: -7rem;
-    margin-bottom: 0em;
-    position: relative;
 
+.headfunc{
+  
+    display: flex;
+    justify-content: left;
+    position: sticky;
+    margin-top: -19rem;
 }
 
 #biz-name{
-    margin-top: -130px ;
+    /* margin-top: -14rem ; */
     color: white;
     font-size: 60px;
 }
@@ -53,7 +51,8 @@
 .entire-biz-page{
 display: flex;
 flex-direction: column;
-align-items: center;
+align-items: baseline;
+
 }
 
 .top-background{
