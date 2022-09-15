@@ -23,7 +23,7 @@ function ReviewForm() {
   const reviewData = useSelector(
     sessionUser ? getReview(sessionUser.id, +businessId) : getReview(null)
   );
-  console.log(reviewData)
+  console.log(reviewData);
 
   const [errors, setErrors] = useState([]);
   const [rating, setRating] = useState(1);
@@ -32,8 +32,6 @@ function ReviewForm() {
   const [photo, setPhoto] = useState("");
 
   const type = reviewData ? "update" : "create";
-  
-
 
   // AWS
 
@@ -41,45 +39,30 @@ function ReviewForm() {
   // const file = e.currentTarget.files[0]
   // reader.onloadend = () =>
 
-  // 
+  //
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // AWS
-    const formData = new FormData();
-    formData.append('review[rating]', rating);
-    formData.append('review[body]', body);
-    formData.append('review[bizId]', businessId);
-    formData.append('review[authorId]',sessionUser.id);
-    for( let i=0; i< photos.length; i++){
-      formData.append("review[photos][]", photos[i]);
-    }
-
-    console.log(formData)
-
-    // const editFormData = new FormData();
-    // editFormData.append('review[rating]', rating);
-    // editFormData.append('review[body]', body);
-    // editFormData.append('review[bizId]', businessId);
-    // editFormData.append('review[authorId',sessionUser.id);
-    // for( let i=0; i< photos.length; i++){
-    //   editFormData.append("review[photos][]", photos[i]);
-    // }
-    
-    // console.log(editFormData)
-    // dispatch(updateReview({ ...reviewData, body, rating })).catch(
-
+   
 
     if (!sessionUser) {
       return setLoginModal(true);
     } else {
+
+       // AWS
+    const formData = new FormData();
+    formData.append("review[rating]", rating);
+    formData.append("review[body]", body);
+    formData.append("review[bizId]", businessId);
+    formData.append("review[authorId]", sessionUser.id);
+    for (let i = 0; i < photos.length; i++) {
+      formData.append("review[photos][]", photos[i]);
+    }
+      
+      
       if (type === "create") {
-        dispatch(
-          createReview(
-            formData
-          )
-        ).catch(async (res) => {
+        dispatch(createReview(formData)).catch(async (res) => {
           let data;
           try {
             // .clone() essentially allows you to read the response body twice
@@ -88,33 +71,28 @@ function ReviewForm() {
             data = await res.text(); // Will hit this case if, e.g., server is down
           }
           if (data?.errors) setErrors(data.errors);
-          else if (data) setErrors([data]);
+          else if (data) setErrors([data.message]);
           else setErrors([res.statusText]);
         });
-
-      //   if (body) {
-      //     history.push(`/business/${businessId}`);
-      // }
       } else {
-        dispatch(updateReview({...reviewData, rating, body})).catch(
-          async (res) => {
-            let data;
-            try {
-              // .clone() essentially allows you to read the response body twice
-              data = await res.clone().json();
-            } catch {
-              data = await res.text(); // Will hit this case if, e.g., server is down
-            }
-            if (data?.errors) setErrors(data.errors);
-            else if (data) setErrors([data]);
-            else setErrors([res.statusText]);
+        dispatch(updateReview(formData, reviewData.id)).catch(async (res) => {
+          let data;
+          try {
+            // .clone() essentially allows you to read the response body twice
+            data = await res.clone().json();
+          } catch {
+            data = await res.text(); // Will hit this case if, e.g., server is down
           }
-        );
+          console.log(data);
+          if (data?.errors) setErrors(data.errors);
+          else if (data) setErrors([data.message]);
+          else setErrors([res.statusText]);
+        });
       }
-      
+
       if (body) {
         history.push(`/business/${businessId}`);
-    }
+      }
     }
   };
 
@@ -150,13 +128,13 @@ function ReviewForm() {
         </ul>
         <form onSubmit={handleSubmit} className="reviewform">
           <h1 id="busname">{bizData.bizName}</h1>
-            
+
           <div className="rate">
             <StarRating
               className="rating"
               rating={rating}
               setRating={setRating}
-              />
+            />
           </div>
 
           <div className="review-body">
@@ -165,12 +143,16 @@ function ReviewForm() {
               value={body}
               placeholder="This is the best mcdonald's i have ever been to. Their Big MAC is crazzzzy good, not to mention the filet-O-fish. Its all just mind bloawing"
               onChange={(e) => setBody(e.target.value)}
-              />
+            />
           </div>
 
           <div id="upload">
             <h1>Attach Photos</h1>
-            <input type="file" onChange={e => setPhotos(e.target.files )} multiple/>
+            <input
+              type="file"
+              onChange={(e) => setPhotos(e.target.files)}
+              multiple
+            />
           </div>
 
           <button type="submit" id="post-review">
