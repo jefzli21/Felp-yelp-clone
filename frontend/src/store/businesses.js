@@ -49,10 +49,6 @@ export const createBusiness = bizFormData => async dispatch =>{
     const res = await csrfFetch("/api/businesses", {
         method: "POST",
         body: JSON.stringify(bizFormData),
-        headers: {
-            'Content-Type' : 'application/json',
-            'Accept': 'application/json'
-        }
     })
     const data = await res.json();
     dispatch(addBusiness(data.business))

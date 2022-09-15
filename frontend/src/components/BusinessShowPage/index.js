@@ -50,7 +50,6 @@ function BusinessShowPage() {
     lat: bizData.lat,
     lng: bizData.long
   }
-  console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY)
 
   return (
     <>

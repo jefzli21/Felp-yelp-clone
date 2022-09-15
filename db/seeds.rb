@@ -51,7 +51,7 @@ ApplicationRecord.transaction do
       biz_name: 'McDonalds',
       biz_type: '$$ - fast food',
       address: '123 clown street, CA 90024',
-      hours: 'M-T-W-Th-F, 10am - 10pm',
+      hours: 'M-T-W-Th-F  10am - 10pm',
       about: 'we make you happy and obese',
       feature: 'disability, air condition, accessible ramp',
       phone: 123456789,
@@ -70,13 +70,13 @@ ApplicationRecord.transaction do
       biz_name: 'Burger King',
       biz_type: '$$ - fast food',
       address: '321 burger street, CA 90024',
-      hours: 'M-T-W-Th-F, 10am - 10pm',
+      hours: 'M-T-W-Th-F  10am - 10pm',
       about: 'we make you burger and happiness',
       feature: 'disability, air condition, accessible ramp',
       phone: 123456789,
       owner_id: 2,
-      long: 100,
-      lat: 100,
+      long: -122.40780489479005,
+      lat: 37.78619309259152
       website: "www.burgerking.com"
     )
 
@@ -84,13 +84,13 @@ ApplicationRecord.transaction do
       biz_name: 'Wendys',
       biz_type: '$$ - fast food',
       address: '423 wend street, CA 90024',
-      hours: 'M-T-W-Th-F, 10am - 10pm',
+      hours: 'M-T-W-Th-F  10am - 9pm',
       about: 'we make you happy',
       feature: 'disability, air condition, accessible ramp',
       phone: 123456789,
       owner_id: 3,
-      long: 100,
-      lat: 100,
+      long: -122.46366506747985,
+      lat: 37.69345768430718
       website: "www.wendys.com"
     )
 

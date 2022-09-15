@@ -15,6 +15,8 @@ json.extract! business,
 
  json.photo_url business.photo.url
 
+ json.average_rating business.average_rating
+ 
 #  b= Business.first
 
 #  b.photo.attach(io: File.open("/Users/jeffrey/Desktop/AppAcademyMAC/Felp/Felp-yelp-clone/app/assets/images/mc.jpg"), filename: "mc.jpg")

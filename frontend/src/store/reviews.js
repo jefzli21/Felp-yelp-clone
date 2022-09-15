@@ -84,9 +84,11 @@ export const fetchReviews = () => async dispatch =>{
 }
 
 export const createReview = (review) => async dispatch =>{
-    const res = await csrfFetch(`/api/reviews`, {
+    const res = await fetch(`/api/reviews`, {
         method: 'POST',
-        body: JSON.stringify(review)
+        // body: JSON.stringify(review)
+        headers: { 'X-CSRF-Token': sessionStorage.getItem('X-CSRF-Token')},
+        body: review
     });
 
     const data = await res.json();
@@ -97,13 +99,14 @@ export const createReview = (review) => async dispatch =>{
 
 
 export const updateReview = (review) => async dispatch =>{
-    const res = await csrfFetch(`/api/reviews/${review.id}`, {
+    const res = await fetch(`/api/reviews/${review.id}`, {
         method: 'PATCH',
-        body: JSON.stringify(review)
+        headers: { 'X-CSRF-Token': sessionStorage.getItem('X-CSRF-Token')},
+        body: review
     });
-
     const data = await res.json();
     dispatch(addReview(data));
+    return data
 }
 
 
@@ -114,7 +117,6 @@ export const deleteReview = (reviewId) => async dispatch =>{
     if(res.ok){
         dispatch(removeReview(reviewId));
     }
-    
 }
 
 

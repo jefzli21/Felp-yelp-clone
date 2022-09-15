@@ -23,10 +23,12 @@ function ReviewForm() {
   const reviewData = useSelector(
     sessionUser ? getReview(sessionUser.id, +businessId) : getReview(null)
   );
+  console.log(reviewData)
 
   const [errors, setErrors] = useState([]);
   const [rating, setRating] = useState(1);
   const [body, setBody] = useState("");
+  const [photos, setPhotos] = useState([]);
 
   const type = reviewData ? "update" : "create";
   
@@ -44,25 +46,38 @@ function ReviewForm() {
     e.preventDefault();
 
     // AWS
-    // const formData = new FormData();
-    // formData.append('review[rating]', review.rating);
-    // formData.append('review[body]',review.body);
-    // formData.append('review[photos]', review.photos);
+    const formData = new FormData();
+    formData.append('review[rating]', rating);
+    formData.append('review[body]', body);
+    // formData.append('review[photos]', photos);
+    formData.append('review[bizId]', businessId);
+    formData.append('review[authorId',sessionUser.id);
 
+    for( let i=0; i< photos.length; i++){
+      formData.append("review[photos][]", photos[i]);
+    }
+
+    const editFormData = new FormData();
+    editFormData.append('review[rating]', rating);
+    editFormData.append('review[body]', body);
+    editFormData.append('review[bizId]', businessId);
+    editFormData.append('review[authorId',sessionUser.id);
+    for( let i=0; i< photos.length; i++){
+      editFormData.append("review[photos][]", photos[i]);
+    }
     
-    //
-    
+    console.log(editFormData)
+    // dispatch(updateReview({ ...reviewData, body, rating })).catch(
+
+
     if (!sessionUser) {
       return setLoginModal(true);
     } else {
       if (type === "create") {
         dispatch(
-          createReview({
-            rating,
-            body,
-            biz_id: businessId,
-            author_id: sessionUser.id,
-          })
+          createReview(
+            formData
+          )
         ).catch(async (res) => {
           let data;
           try {
@@ -80,7 +95,7 @@ function ReviewForm() {
       //     history.push(`/business/${businessId}`);
       // }
       } else {
-        dispatch(updateReview({ ...reviewData, rating, body })).catch(
+        dispatch(updateReview({...reviewData, ...editFormData})).catch(
           async (res) => {
             let data;
             try {
@@ -118,7 +133,6 @@ function ReviewForm() {
       setBody(reviewData.body);
     }
   }, [reviewData]);
-
   if (!bizData) {
     return null;
   }
@@ -155,7 +169,7 @@ function ReviewForm() {
 
           <div id="upload">
             <h1>Attach Photos</h1>
-            <input type="file" onChange={e => this.setState({ photos: e.target.files })} multiple/>
+            <input type="file" onChange={e => setPhotos(e.target.files )} multiple/>
           </div>
 
           <button type="submit" id="post-review">

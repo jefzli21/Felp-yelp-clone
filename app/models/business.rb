@@ -28,9 +28,9 @@ class Business < ApplicationRecord
         dependent: :destroy,
         class_name: :Review
 
-    # def average_rating 
-    #     average = reviews.average(:rating)
-    #     average && average.round(1)
-    # end
+    def average_rating 
+        average = reviews.average(:rating)
+        average && average.round(1)
+    end
     
 end

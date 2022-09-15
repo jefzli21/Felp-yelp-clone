@@ -1,6 +1,11 @@
 class Api::BusinessesController < ApplicationController
   before_action :require_logged_in, only: :create
   wrap_parameters include: Business.attribute_names + [:ownerId]
+#get request, /api/businesses?query= banana
+  def index
+    # @business = Business.where("biz_name like ? " params[:query]).where("biz_type like ? " params[:query])
+    render :index
+  end
 
   def show
     @business = Business.find(params[:id])
