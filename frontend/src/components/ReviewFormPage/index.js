@@ -29,6 +29,7 @@ function ReviewForm() {
   const [rating, setRating] = useState(1);
   const [body, setBody] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [photo, setPhoto] = useState("");
 
   const type = reviewData ? "update" : "create";
   
@@ -50,10 +51,12 @@ function ReviewForm() {
     formData.append('review[rating]', rating);
     formData.append('review[body]', body);
     formData.append('review[bizId]', businessId);
-    formData.append('review[authorId',sessionUser.id);
+    formData.append('review[authorId]',sessionUser.id);
     for( let i=0; i< photos.length; i++){
       formData.append("review[photos][]", photos[i]);
     }
+
+    console.log(formData)
 
     // const editFormData = new FormData();
     // editFormData.append('review[rating]', rating);
@@ -109,9 +112,9 @@ function ReviewForm() {
         );
       }
       
-      // if (body) {
-      //   history.push(`/business/${businessId}`);
-    // }
+      if (body) {
+        history.push(`/business/${businessId}`);
+    }
     }
   };
 
