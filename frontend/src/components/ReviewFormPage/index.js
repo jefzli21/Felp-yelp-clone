@@ -23,7 +23,6 @@ function ReviewForm() {
   const reviewData = useSelector(
     sessionUser ? getReview(sessionUser.id, +businessId) : getReview(null)
   );
-  console.log(reviewData);
 
   const [errors, setErrors] = useState([]);
   const [rating, setRating] = useState(1);
@@ -82,7 +81,6 @@ function ReviewForm() {
           } catch {
             data = await res.text(); // Will hit this case if, e.g., server is down
           }
-          console.log(data);
           if (data?.errors) setErrors(data.errors);
           else if (data) setErrors([data.message]);
           else setErrors([res.statusText]);

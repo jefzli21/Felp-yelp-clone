@@ -2,16 +2,17 @@ import { useDispatch, useSelector } from "react-redux";
 import "./BusinessIndexPage.css"
 import {fetchQueryBusinesses, selectBusinesses} from "../../store/businesses"
 import StaticRating from "../StaticRating";
-import { useHistory, useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { useHistory, useParams, Link, Redirect } from "react-router-dom";
+import { useEffect, useState } from "react";
 import GMap from "../GMap";
 
 
 function BusinessIndexPage () {
     const { query } = useParams();
     const dispatch = useDispatch();
-    const bizData = useSelector((state)=> selectBusinesses(state))
+    const bizData = useSelector((state)=> selectBusinesses(state));
     const history = useHistory();
+
     
     useEffect(()=>{
         dispatch(fetchQueryBusinesses(query))
@@ -22,6 +23,7 @@ function BusinessIndexPage () {
     if(!bizData){return null}
 
     const handleClick = (e) => {
+        e.preventDefault();
         history.push(`/search/${query}`)
 
     }
@@ -42,9 +44,7 @@ function BusinessIndexPage () {
                 <h1>{i+1}.{business.bizName}</h1>
                 <StaticRating rating={business.averageRating} />
                 <p>{business.bizType}</p>
-                
                 </div>
-
             </Link>
         )): <h1>Sorry, no results found</h1>}
         </div>

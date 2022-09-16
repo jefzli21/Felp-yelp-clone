@@ -9,7 +9,7 @@ class Api::BusinessesController < ApplicationController
     if @businesses.length > 0
     render :index
     else
-      render json: ["No results for %#{query}% "], status: 404
+      render :index
     end
   end
 
