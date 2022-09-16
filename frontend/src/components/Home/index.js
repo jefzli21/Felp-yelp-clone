@@ -24,7 +24,7 @@ function Home() {
             <Link  to={'search/Chinese'} className="catotag" > <i className="fa-solid fa-bowl-food"></i> Chinese</Link>
             <Link  to={'search/French'} className="catotag" > <i className="fa-solid fa-bread-slice"></i> French</Link>
             <Link  to={'search/English'} className="catotag" ><i className="fa-solid fa-fish"></i> English</Link>
-            <Link  to={'search/Germany'} className="catotag" ><i className="fa-solid fa-plate-wheat"></i> Germany</Link>
+            <Link  to={'search/German'} className="catotag" ><i className="fa-solid fa-plate-wheat"></i> German</Link>
             <Link  to={'search/Fried%20Chicken'} className="catotag" > <i className="fa-solid fa-drumstick-bite"></i> Fried Chicken</Link>
 
             </div>
