@@ -22,8 +22,8 @@ export const selectBusinesses = state =>{
     }else{
         return Object.values(state.businesses)
     }
-
 }
+
 
 // thunk action creators
 

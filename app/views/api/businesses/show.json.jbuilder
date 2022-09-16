@@ -9,6 +9,7 @@ json.reviews do
         json.set! review.id do
             json.extract! review, :rating, :body,:biz_id,:author_id, :id, :created_at
             json.author review.author.username
+            json.pic review.author.photo.url
             json.photo_urls review.photos.map{|photo| photo.url}
         end
     end

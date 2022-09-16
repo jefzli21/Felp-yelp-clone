@@ -143,6 +143,7 @@ function ReviewForm() {
               value={body}
               placeholder="This is the best mcdonald's i have ever been to. Their Big MAC is crazzzzy good, not to mention the filet-O-fish. Its all just mind bloawing"
               onChange={(e) => setBody(e.target.value)}
+              required
             />
           </div>
 

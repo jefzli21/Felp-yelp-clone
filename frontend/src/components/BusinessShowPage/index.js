@@ -53,10 +53,6 @@ function BusinessShowPage() {
 
   return (
     <>
-      <div className="entire-biz-page">
-        {/* place holder for 2nd Version NavBar */}
-        <div className="biz-header">
-          {/* biz-profile-pic */}
           <div className="top-background">
             {allpics.map((pic, i) => (
               <img
@@ -69,6 +65,11 @@ function BusinessShowPage() {
               />
             ))}
           </div>
+
+      <div className="entire-biz-page">
+        {/* place holder for 2nd Version NavBar */}
+        <div className="biz-header">
+          {/* biz-profile-pic */}
           <div className="headfunc">
             <div>
               <h1 id="biz-name">{bizData.bizName}</h1>
@@ -76,7 +77,6 @@ function BusinessShowPage() {
               <h1 id="biz-type">{bizData.bizType}</h1>
               <StaticRating rating={averageRating} />
             </div>
-            <p></p>
           </div>
         </div>
         {/* Buttons- write a review */}
@@ -116,7 +116,7 @@ function BusinessShowPage() {
           {reviewsData.map((review) => (
             <div className="singlereview" key={review.authorId}>
               <div id="name-pic">
-              <img src={imgdefault} width="40vw" height="40vh" id="profpic"></img>
+              <img src={review.pic ? review.pic: imgdefault} width="40vw" height="40vh" id="profpic"></img>
               <h2>{review.author}</h2>
               {(sessionUser ? sessionUser.id : null) === review.authorId ? (
                 <button id="delete-review" onClick={() => dispatch(deleteReview(review.id))}>

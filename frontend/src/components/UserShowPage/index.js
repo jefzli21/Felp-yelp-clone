@@ -34,7 +34,7 @@ function UserShowPage() {
             <div className="profilehead">
                 <div className="addpic">
         {/* <button id="adp"><i className="fa-solid fa-camera"></i>Add a photo</button> */}
-        <img src={imgdefault} id="profilepic" width="200vw" height="200vh" />
+        <img src={sessionUser.photoUrl? sessionUser.photoUrl :imgdefault} id="profilepic" width="200vw" height="200vh" />
                 </div>
                 <div>
         <h1 id="usernam">{sessionUser.username}</h1>

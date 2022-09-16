@@ -1,17 +1,26 @@
 .biz-header{
+    display: flex;
+    flex-direction: row;
+    position: sticky;
 }
 
-
-.headfunc{
-  
+.entire-biz-page{
     display: flex;
-    justify-content: left;
+    flex-direction: column;
+    align-items: left;
+    padding-left:20vw ;
+    }
+
+/* top */
+.headfunc{
+      
+    z-index: 10000;
     position: sticky;
-    margin-top: -19rem;
+    margin-top: -32vh;
+
 }
 
 #biz-name{
-    /* margin-top: -14rem ; */
     color: white;
     font-size: 60px;
 }
@@ -22,6 +31,7 @@
     font-size: 25px;
 }
 
+/* below top */
 #write-review{
     color: white;
     background-color: rgb(235, 42, 42);
@@ -41,24 +51,19 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    /* margin-right: 20rem; */
-    /* margin-top: 3rem; */
+    margin-top: -12vh;
 }
 
 .left{
 }
 
-.entire-biz-page{
-display: flex;
-flex-direction: column;
-align-items: baseline;
 
-}
 
 .top-background{
     display: flex;
     flex-direction: row;
     position:relative;
+    z-index: 0;
 }
 
 .top-background:before{
@@ -128,12 +133,12 @@ align-items: baseline;
 }
 
 .side-item{
-    /* border-bottom: 1px solid black; */
-    /* position: sticky; */
     padding-top: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     padding-left: 50px;
     padding-right: 50px;
+    margin: 20px;
+    border: 1px black solid;
 }
 
 #delete-review{

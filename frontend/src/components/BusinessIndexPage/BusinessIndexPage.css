@@ -3,5 +3,26 @@
 
 
 .singlebiz{
-    border: 1px solid black
+    border: 1px solid rgba(0, 0, 0, 0.122);
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor:pointer;
+    transition: 1s;
+}
+
+.singlebiz:hover{
+    box-shadow: 1px 1px 10px;
+}
+
+.bizhead{
+    color: rgb(47, 41, 41);
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.allindex{
+    display: flex;
+    justify-content: space-around;
 }

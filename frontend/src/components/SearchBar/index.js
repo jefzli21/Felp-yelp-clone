@@ -12,7 +12,7 @@ function SearchBar(){
     
 
     const handleSubmit = (e) =>{
-        console.log(query)
+        
         e.preventDefault();
         dispatch(fetchQueryBusinesses(query));
         history.push(`/search/${query}`)
@@ -23,7 +23,7 @@ function SearchBar(){
         <div className='search'>
             <form onSubmit={handleSubmit}>
             <input id='st' type='text' value={query} onChange={(e)=> setQuery(e.target.value)}/>
-            <button type='submit'>
+            <button type='submit' id='searchbutt'>
                 <i id='mag' className="fa-solid fa-magnifying-glass"></i>
             </button>
 

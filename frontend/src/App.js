@@ -1,13 +1,13 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Navigation2 from "./components/Navigation2";
 import BusinessShowPage from "./components/BusinessShowPage";
 import ReviewForm from "./components/ReviewFormPage";
 import Navigation3 from "./components/Navigation3";
 import UserShowPage from "./components/UserShowPage";
-import GMap from "./components/GMap";
 import BusinessIndexPage from "./components/BusinessIndexPage";
+import Home from "./components/Home";
 
 function App() {
   
@@ -31,8 +31,9 @@ function App() {
           <BusinessIndexPage />
           </Route>
           <Route exact path="/">
-          <Navigation />
+          <Home />
           </Route>
+          <Redirect to="/" />
 
         </Switch>
     </>

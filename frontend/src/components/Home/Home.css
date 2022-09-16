@@ -1,0 +1,42 @@
+
+.homepage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.categories{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position:absolute;
+    color: rgb(45, 43, 43);
+    margin-top: 80vh;
+}
+
+.food-type{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+}
+
+.catotag{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    padding: 57px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    border-radius: 10px;
+    border: 1px lightgray solid;
+    font-size: 30px;
+    color: rgb(9, 9, 9);
+    text-decoration: none;
+    transition: 200ms;
+}
+
+.catotag:hover{
+    
+    box-shadow: 0 0 5px;
+}
