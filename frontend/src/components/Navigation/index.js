@@ -39,6 +39,7 @@ function Navigation() {
   return (
     <>
     <div className='background'>
+    </div>
     <ul className='nav'>
         <NavLink exact to="/"><div className='logo'><img  className='logo' src={logo} alt='' width="150" height="150"/></div></NavLink>
         <div>
@@ -49,7 +50,6 @@ function Navigation() {
         {sessionLinks}
         </div>
     </ul>
-    </div>
     
     </>
   );

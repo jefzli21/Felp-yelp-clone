@@ -1,6 +1,7 @@
 import Navigation from "../Navigation";
 import "./Home.css"
 import {Link} from "react-router-dom"
+import Footer from "../Footer";
 
 function Home() {
 
@@ -9,10 +10,12 @@ function Home() {
 
         <div className="homepage">
 
+        <div className="homenav">
         <Navigation />
+        </div>
 
         <div className='categories'>
-            <h1>Categories:</h1>
+            <h1>Categories</h1>
 
             <div className="food-type">
             <Link  to={'search/American'} className="catotag" > <i className="fa-solid fa-hotdog"></i> American</Link>
@@ -25,7 +28,10 @@ function Home() {
             <Link  to={'search/Fried%20Chicken'} className="catotag" > <i className="fa-solid fa-drumstick-bite"></i> Fried Chicken</Link>
 
             </div>
+            <div id="foot">
 
+            {/* <Footer/> */}
+            </div>
         </div>
         </div>
     )

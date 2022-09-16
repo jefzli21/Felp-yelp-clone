@@ -16,9 +16,8 @@ function BusinessShowPage() {
   const reviewsData = useSelector(getBizReviews(businessId));
   const sessionUser = useSelector((state) => state.session.user);
 
-  
 
-  // console.log(location)
+  
   // average rating
   let totalRating = 0;
   reviewsData.map((review) => (totalRating += review.rating));
@@ -45,12 +44,18 @@ function BusinessShowPage() {
     return null;
   }
 
+  let features = bizData.feature
+  const allFeatures = features.split(",")
+
+  console.log(allFeatures)
+
   const location = {
     address: bizData.address,
     lat: bizData.lat,
     lng: bizData.long
   }
-
+  
+  
   return (
     <>
           <div className="top-background">
@@ -79,6 +84,7 @@ function BusinessShowPage() {
             </div>
           </div>
         </div>
+
         {/* Buttons- write a review */}
         <div className="core-info">
           <div className="left">
@@ -100,17 +106,27 @@ function BusinessShowPage() {
         </div>
         <p id="hours">{bizData.hours}</p>
         </div>
+        {/* features section */}
+        <h1>Features</h1>
+        <div className="features">
+        {allFeatures.map((feature,i)=>(
+        <div key={i+100}>
+          <h2><i id="check" className="fa-regular fa-circle-check"></i> {feature}</h2>
+        </div>
+        ))}
+        </div>
 
-        <h1>{bizData.feature}</h1>
-
+        {/* business about */}
+        <div className="biz-about">
         <h1>About the Business</h1>
-        <h1>{bizData.about}</h1>
+        <p>{bizData.about}</p>
+        </div>
 
     
 
         {/* <h1>{bizData.ownerId}</h1> */}
 
-        <h1>Reviews</h1>
+        <h1 id="review-section">Reviews</h1>
 
         <ul className="biz-reviews">
           {reviewsData.map((review) => (
@@ -153,9 +169,12 @@ function BusinessShowPage() {
         </ul>
         </div>
         <div className="right">
-          <p className="side-item">{bizData.website}</p>
-          <p className="side-item">{bizData.phone}</p>
-          <p className="side-item">{bizData.address}</p>
+          <a className="side-item" id="web" href={bizData.website}>{bizData.website} <i className="fa-solid fa-arrow-right-from-bracket"></i> </a>
+          <a className="side-item" id="ph">{bizData.phone} <i className="fa-solid fa-phone"></i></a>
+          <a className="dir">
+          {/* <h3>Get Direction</h3> */}
+          <p className="side-item" id="bizaddress">{bizData.address} <i className="fa-solid fa-diamond-turn-right"></i></p>
+          </a>
         </div>
       </div>
     </div>

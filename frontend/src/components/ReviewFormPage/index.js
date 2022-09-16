@@ -29,7 +29,6 @@ function ReviewForm() {
   const [rating, setRating] = useState(1);
   const [body, setBody] = useState("");
   const [photos, setPhotos] = useState([]);
-  const [photo, setPhoto] = useState("");
 
   const type = reviewData ? "update" : "create";
 
@@ -149,11 +148,14 @@ function ReviewForm() {
 
           <div id="upload">
             <h1>Attach Photos</h1>
+
             <input
               type="file"
+              id="file"
               onChange={(e) => setPhotos(e.target.files)}
               multiple
-            />
+              />
+            <label for="file" className="inputfile"></label>
           </div>
 
           <button type="submit" id="post-review">

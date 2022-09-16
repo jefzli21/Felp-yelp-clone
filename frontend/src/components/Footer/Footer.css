@@ -1,0 +1,26 @@
+.contact-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* position: absolute; */
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding-top: 100px;
+    padding: 10px;
+    border-top: 1px rgb(157, 157, 157) solid;
+    background-color: rgb(255, 51, 0);
+    margin-top: 300px;
+}
+
+
+.contact-info> h2{
+    color: aliceblue;
+    margin-left: 10px;
+}
+
+#iconpic:hover{
+
+    
+}

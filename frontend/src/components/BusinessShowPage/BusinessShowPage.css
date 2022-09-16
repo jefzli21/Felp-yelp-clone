@@ -64,6 +64,7 @@
     flex-direction: row;
     position:relative;
     z-index: 0;
+    overflow: hidden;
 }
 
 .top-background:before{
@@ -120,32 +121,12 @@
     border-radius: 30px;
 }
 
-.right{
-    border: 1px solid black;
-    position: sticky;
-    top: 0;
-    z-index: 100;
- 
-    margin-top: 7rem;
-    margin-left: 3rem;
-    background-color: white;
-
-}
-
-.side-item{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin: 20px;
-    border: 1px black solid;
-}
 
 #delete-review{
- border: none;
- background-color: rgba(255, 0, 0, 0);
- color: gray;
- margin-left: 28rem;
+    border: none;
+    background-color: rgba(255, 0, 0, 0);
+    color: gray;
+    margin-left: 28rem;
 }
 
 #delete-review:hover{
@@ -171,7 +152,84 @@
 #hours{
     display: flex;
     width: 250px;
-    font-size: 40px;
+    font-size: 38px;
     padding-left: 40px;
     color: rgb(66, 62, 62);
+}
+
+
+.biz-about{
+    border-top: 1px solid lightgray;
+}
+
+.biz-about > p{
+    font-size: 20px;
+    color: rgb(52, 50, 50);
+}
+
+.features{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding-bottom: 10px;
+}
+
+#check{
+    color: green;
+}
+
+#review-section{
+    border-top: 1px solid lightgray;
+    margin-top: 50px;
+}
+
+/* right side floating window */
+
+.right{
+
+    position: sticky;
+    top: 2vh;
+    z-index: 100;
+    margin-top: 7rem;
+    margin-left: 3rem;
+    background-color: white;
+    border: 1px rgba(207, 194, 194, 0.447) solid;
+    border-radius: 5px;
+
+}
+
+.side-item{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.side-item > i{
+    padding-left: 50px;
+}
+
+#web, #ph{
+    font-size: 20px;
+    border-bottom: 1px rgb(188, 179, 179) solid;
+}
+
+#bizaddress{
+    /* padding-top: 0px; */
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.dir{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -10px;
+}
+
+.dir> h3{
+    margin-left: -30px;
 }
