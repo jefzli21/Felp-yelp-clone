@@ -1,0 +1,126 @@
+.nav2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* margin: -10px; */
+    background-image: white;
+    border-bottom: 1px lightgray solid;
+    font-size: 1px;
+}
+
+.nav2 > div{
+    display: flex;
+    list-style: none;
+}
+
+.butt{
+    list-style-type: none;
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+
+
+/* Logged In */
+
+#profile{
+    width: 70px;
+    height: 70px;
+    font-size: 40px;
+    border-radius: 50px;
+    /* transition: height 2s; */
+    cursor: pointer;
+    border: none;
+    z-index: 10;
+    margin-right:2rem ;
+}
+
+#profile:hover{
+    color: lightgray;
+}
+
+.profile-dropdown{
+    background-color: rgb(255, 255, 255);
+    position:absolute;
+    margin-top: 5rem;
+    /* margin-left: -4rem; */
+    margin-left: -50px;
+    border: 1px solid lightgray;
+    list-style-type: none;
+    cursor: pointer;
+    border-radius: 10px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 40px;
+}
+
+.profile-dropdown > li{
+    font-size: 20px;
+    padding: 10px;
+    margin-left: -2.5rem;
+    /* border-radius: 10px; */
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.profile-dropdown > li:hover{
+    background-color: lightgray;
+}
+
+.drop{
+    display: flex;
+    flex-direction: column;
+    align-items: right;
+}
+
+#logout{
+    border-top: 1px lightgray solid;
+    /* padding-top: 20px; */
+    display: flex;
+    align-items: center;
+
+}
+
+#logoutbutt{
+    font-size: 17px;
+    border: none;
+    background-color: rgba(255, 0, 0, 0);
+    cursor: pointer;
+
+}
+
+#icons{
+    margin-right: 10px;
+}
+
+
+
+/* background */
+.background{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 680px;
+    animation: animate 30s ease-in-out infinite;
+    background-size: cover;
+  }
+  @keyframes animate{
+    0%, 100%{
+      background-image: url(../../../../app/assets/background/img1.jpg);
+    }
+    20%{
+      background-image: url(../../../../app/assets/background/img2.jpg);
+    }
+    40%{
+      background-image: url(../../../../app/assets/background/img3.jpg);
+    }
+    60%{
+      background-image: url(../../../../app/assets/background/img4.jpg);
+    }
+    80%{
+      background-image: url(../../../../app/assets/background/img5.jpg);
+    }
+  }

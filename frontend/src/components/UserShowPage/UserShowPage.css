@@ -1,0 +1,100 @@
+.user-title{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 10px solid rgba(255, 30, 30, 0.494);
+    background: linear-gradient(#ebb7b7, #f3eed3);
+    padding-left: 35rem;
+    padding-right: 35rem;
+
+}
+
+
+
+.profilehead{
+    display: flex;
+    flex-direction: row;
+    padding-left: 100px;
+    padding-top:100px;
+    padding-right: 100px;
+    padding-bottom: 50px;
+}
+
+#profilepic{
+    padding-right: 100px;
+}
+
+.addpic{
+    display: flex;
+    flex-direction: column;
+}
+
+#adp{
+    position: relative;
+    width: 115px;
+    font-size: 15px;
+    background-color: rgba(104, 118, 118, 0.433);
+    border: none;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: -30px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#usernam{
+    font-size: 80px;
+    margin-top: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.review-pics{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    list-style: none;
+    margin-left: -3rem;
+    position: relative;
+}
+
+.review-pic{
+    padding: 10px;
+    border-radius: 15px;
+    list-style: none;
+}
+
+.user-review{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    box-shadow: 0px 0px 10px;
+    padding:30px;
+    margin-bottom: 20px;
+    width: 40rem;
+
+}
+
+.all-reviews{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50rem;
+    /* margin-left: 30rem; */
+}
+
+#review-body{
+    font-size: 25px;
+
+}
+
+
+.bot-back{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.everything{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

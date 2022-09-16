@@ -17,38 +17,22 @@
     margin-right: 10px;
 }
 
-.search{
-    display: flex;
-    align-items: center;
-}
 
-#st{
-    border: none;
-    font-size: 40px;
-    border-radius: 10px;
-
-}
-
-#mag{
-    color: white;
-    background-color: red;
-    font-size: 30px;
-    padding: 10px;
-    border-radius: 10px;
-
-}
 
 
 /* Logged In */
+
+#aboutme{
+  text-decoration: none;
+   color: black;
+   font-size: 19px;
+}
 
 #profile{
     width: 70px;
     height: 70px;
     font-size: 40px;
-    border-radius: 50px;
-    /* transition: height 2s; */
     cursor: pointer;
-    border: none;
     z-index: 10;
     margin-right:2rem ;
 }
@@ -61,16 +45,15 @@
     background-color: rgb(255, 255, 255);
     position:absolute;
     margin-top: 5rem;
-    /* margin-left: -4rem; */
     margin-left: -50px;
     border: 1px solid lightgray;
     list-style-type: none;
     cursor: pointer;
-    border-radius: 10px ;
     display: flex;
     flex-direction: column;
     justify-content: left;
     padding-left: 40px;
+    z-index: 100;
 }
 
 .profile-dropdown > li{
@@ -85,6 +68,8 @@
 
 .profile-dropdown > li:hover{
     background-color: lightgray;
+    border-radius: 10px;
+    /* border: none; */
 }
 
 .drop{
@@ -103,7 +88,7 @@
 
 #logoutbutt{
     font-size: 17px;
-    border: none;
+    /* border: none; */
     background-color: rgba(255, 0, 0, 0);
     cursor: pointer;
 
@@ -117,11 +102,13 @@
 
 /* background */
 .background{
+    display: flex;
+    flex-direction: column;
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    height: 690px;
+    height: 680px;
     animation: animate 30s ease-in-out infinite;
     background-size: cover;
   }
@@ -142,3 +129,9 @@
       background-image: url(../../../../app/assets/background/img5.jpg);
     }
   }
+
+
+.categories{
+
+
+}

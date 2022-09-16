@@ -1,0 +1,177 @@
+.biz-header{
+    display: flex;
+    flex-direction: row;
+    position: sticky;
+}
+
+.entire-biz-page{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding-left:20vw ;
+    }
+
+/* top */
+.headfunc{
+      
+    z-index: 10000;
+    position: sticky;
+    margin-top: -32vh;
+
+}
+
+#biz-name{
+    color: white;
+    font-size: 60px;
+}
+
+#biz-type{
+    margin-top: -40px;
+    color: white;
+    font-size: 25px;
+}
+
+/* below top */
+#write-review{
+    color: white;
+    background-color: rgb(235, 42, 42);
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    transition: 1s;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+.core-info{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: -12vh;
+}
+
+.left{
+}
+
+
+
+.top-background{
+    display: flex;
+    flex-direction: row;
+    position:relative;
+    z-index: 0;
+}
+
+.top-background:before{
+    
+    content:"";
+    position: absolute;
+    top: 0px;
+    left:0px;
+    height:100%;
+    width:100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.377) , rgba(209, 209, 193, 0));
+    z-index: 0;
+}
+
+#topback{
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display:block;
+}
+
+.functional{
+    border-bottom: 1px solid lightgray;
+    position:relative;
+    padding-bottom: 30px;
+  
+}
+
+#review-pics{
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px;
+}
+
+#review-pics:hover{
+    box-shadow: 0px 0px 5px;
+
+}
+
+.singlereview{
+    padding-bottom: 3rem;
+    margin-left: -3rem;
+}
+
+#name-pic{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: -10px;
+}
+
+#profpic{
+    margin-right: 10px;
+    border-radius: 30px;
+}
+
+.right{
+    border: 1px solid black;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+ 
+    margin-top: 7rem;
+    margin-left: 3rem;
+    background-color: white;
+
+}
+
+.side-item{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: 20px;
+    border: 1px black solid;
+}
+
+#delete-review{
+ border: none;
+ background-color: rgba(255, 0, 0, 0);
+ color: gray;
+ margin-left: 28rem;
+}
+
+#delete-review:hover{
+    background-color: lightblue;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+.map{
+    /* width: 100px; */
+    /* height: 100px; */
+    /* border:  1px black solid; */
+}
+
+.location-hours{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid lightgray;
+}
+
+#hours{
+    display: flex;
+    width: 250px;
+    font-size: 40px;
+    padding-left: 40px;
+    color: rgb(66, 62, 62);
+}

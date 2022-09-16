@@ -24,6 +24,7 @@ function Navigation() {
     sessionLinks = (
       <>
       <li>
+        <button id='login' className='butt' onClick={() => setLoginModal(true)}>Log In</button>
         <LoginFormModal setSignupModal={setSignupModal} showLoginModal={showLoginModal} setLoginModal={setLoginModal} />
         {/* <NavLink to="/login"><button id='login'>Log In</button></NavLink> */}
       </li>
@@ -36,6 +37,7 @@ function Navigation() {
   }
 
   return (
+    <>
     <div className='background'>
     <ul className='nav'>
         <NavLink exact to="/"><div className='logo'><img  className='logo' src={logo} alt='' width="150" height="150"/></div></NavLink>
@@ -48,6 +50,8 @@ function Navigation() {
         </div>
     </ul>
     </div>
+    
+    </>
   );
 }
 

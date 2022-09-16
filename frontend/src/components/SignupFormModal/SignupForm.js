@@ -46,11 +46,14 @@ function SignupForm({setLoginModal, setSignupModal}) {
   return (
     <>
     <div className="signupmo">
+        <ul>
+          {errors.map((error) => <li key={error} className="error">
+             <i class="fa-solid fa-circle-exclamation" id="warning"></i>
+            {error}
+            </li>)}
+        </ul>
       <h1 className="sigmo">Sign Up for Felp</h1>
       <form onSubmit={handleSubmit} className='inputform'>
-        <ul>
-          {errors.map((error) => <li key={error}>{error}</li>)}
-        </ul>
           {/* Email */}
           <input
             className="inputbox"
