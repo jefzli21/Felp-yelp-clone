@@ -25,4 +25,5 @@
 .allindex{
     display: flex;
     justify-content: space-around;
+    padding-bottom: 46vh;
 }

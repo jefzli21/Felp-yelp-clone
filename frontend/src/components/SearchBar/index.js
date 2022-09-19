@@ -14,7 +14,7 @@ function SearchBar(){
     const handleSubmit = (e) =>{
         
         e.preventDefault();
-        dispatch(fetchQueryBusinesses(query));
+        // dispatch(fetchQueryBusinesses(query));
         history.push(`/search/${query}`)
     }
 

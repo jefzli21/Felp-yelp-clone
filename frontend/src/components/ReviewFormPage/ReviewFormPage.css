@@ -54,39 +54,6 @@
     z-index: 0;
 }
 
-/* .filelabel{
-    border:10px solid #ccc;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    width: 37rem;
-    height: 10rem;
-    font-size: 20px;
-    align-items: center;
-    justify-content: center;
-}
-
-.filelabel:hover{
-    box-shadow: 0 0 5px lightgray;
- }
-
- #plus{
-    border: 4px gray solid;
-    padding: 10px;
-    color: gray;
-    border-radius: 100px;
- }
-
-
-input[type="file"] {
-    display: none;
-}
-
-
-#t{
-    color: gray;
-} */
-
 
 .inputfile {
 	width: 0.1px;
@@ -118,3 +85,22 @@ input[type="file"] {
 	outline: 1px dotted #000;
 	outline: -webkit-focus-ring-color auto 5px;
 }
+
+
+.img-preview{
+    display: grid;
+    grid-template-columns: repeat(3, 0fr);
+    margin-bottom: 20px;
+
+}
+
+
+.previews{
+    margin: 10px;
+    border-radius: 10px;
+    
+}
+
+.previews:hover{
+    box-shadow: 0 0 10px;
+} 

@@ -28,21 +28,15 @@ function ReviewForm() {
   const [rating, setRating] = useState(1);
   const [body, setBody] = useState("");
   const [photos, setPhotos] = useState([]);
+  const [previews, setPreviews] = useState([]);
 
   const type = reviewData ? "update" : "create";
 
-  // AWS
-
-  const reader = new FileReader();
-  // const file = e.currentTarget.files[0]
-  // reader.onloadend = () =>
-
-  //
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-   
 
     if (!sessionUser) {
       return setLoginModal(true);
@@ -93,6 +87,17 @@ function ReviewForm() {
     }
   };
 
+
+  const handleFiles =(e) =>{
+    if(e.target.files){
+      const fileArr = Array.from(e.target.files).map((file)=> URL.createObjectURL(file))
+      setPreviews((images) => images.concat(fileArr))
+    }
+
+    setPhotos(e.target.files)
+
+  }
+
   useEffect(() => {
     dispatch(fetchBusiness(businessId));
   }, [businessId]);
@@ -112,6 +117,9 @@ function ReviewForm() {
   if (!bizData) {
     return null;
   }
+
+
+
 
   return (
     <>
@@ -150,10 +158,17 @@ function ReviewForm() {
             <input
               type="file"
               id="file"
-              onChange={(e) => setPhotos(e.target.files)}
+              onChange={handleFiles}
               multiple
               />
-            <label for="file" className="inputfile"></label>
+            <label htmlFor="file" className="inputfile"></label>
+          </div>
+
+          <div className="img-preview">
+            {previews.map((pic)=>(
+              <img className="previews" src={pic} width="150vw" height="150vh"></img>
+            ))}
+  
           </div>
 
           <button type="submit" id="post-review">

@@ -538,8 +538,63 @@ end
 
     rsup1.photos.attach([sup1,sup2,sup3])
     rsup2.photos.attach([sup4,sup5])
-    
 
+
+
+
+    b8 = Business.create!(
+      biz_name: "The Cavalier",
+      biz_type: '$$$ - British',
+      address: '360 Jessie St San Francisco, CA 94103',
+      hours: 'M-T-W-Th-F  3pm - 10pm',
+      about: "Best British food located in San Francisco!",
+      feature: 'Disability, Air Condition, Accessible Ramp, Health Score Pass, Offers Takeout ',
+      phone: 115699999,
+      owner_id: 8,
+      long: -122.40697184422173,
+      lat: 37.78354786334749,
+      website: "https://www.thecavaliersf.com"
+    )
+
+
+    b8.photo.attach(
+      io: URI.open("https://felp-dev.s3.us-west-1.amazonaws.com/business/tc.jpg"),
+      filename: "tc.jpg"
+    )
+
+    rtc1 = Review.create!(
+      rating: 5,
+      body: ' Great British food, Cant believe I can find such a place in America!',
+      biz_id: 8,
+      author_id: 3
+    )
+
+
+    rtc2 = Review.create!(
+      rating: 4,
+      body: ' Its alright, but the decoration of the place makes me feel like home. Its also a bit pricy',
+      biz_id: 8,
+      author_id: 2
+    )
+
+    rtc3 = Review.create!(
+      rating: 3,
+      body: ' This place is a rip-off, they charge you 10 dollars for bread sticks! That is ridiculous',
+      biz_id: 8,
+      author_id: 5
+    )
+
+    tc1 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/tc1.jpg'), filename:'tc1.jpg'}
+    tc2 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/tc2.jpg'), filename:'tc2.jpg'}
+    tc3 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/tc3.jpg'), filename:'tc3.jpg'}
+    tc4 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/tc4.jpg'), filename:'tc4.jpg'}
+    tc5 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/tc5.jpg'), filename:'tc5.jpg'}
+
+    rtc1.photos.attach([tc1])
+    rtc2.photos.attach([tc2])
+    rtc3.photos.attach([tc3,tc4,tc5])
+
+    
     puts "Done!"
 
  

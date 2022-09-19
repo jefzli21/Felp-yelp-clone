@@ -23,7 +23,7 @@ function Home() {
             <Link  to={'search/Italian'} className="catotag" ><i className="fa-solid fa-pizza-slice"></i> Italian</Link>
             <Link  to={'search/Chinese'} className="catotag" > <i className="fa-solid fa-bowl-food"></i> Chinese</Link>
             <Link  to={'search/French'} className="catotag" > <i className="fa-solid fa-bread-slice"></i> French</Link>
-            <Link  to={'search/English'} className="catotag" ><i className="fa-solid fa-fish"></i> English</Link>
+            <Link  to={'search/British'} className="catotag" ><i className="fa-solid fa-fish"></i> British</Link>
             <Link  to={'search/German'} className="catotag" ><i className="fa-solid fa-plate-wheat"></i> German</Link>
             <Link  to={'search/Fried%20Chicken'} className="catotag" > <i className="fa-solid fa-drumstick-bite"></i> Fried Chicken</Link>
 
