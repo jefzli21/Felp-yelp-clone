@@ -657,11 +657,52 @@ end
 
 
     
+    b10 = Business.create!(
+      biz_name: "Big Lantern(大灯笼)",
+      biz_type: '$$$ - Chinese, Fine Dim Sum',
+      address: '3170 16th St San Francisco, CA 94103',
+      hours: 'M-T-W-Th-F  11am - 11pm',
+      about: "Authentic cantonese food. Opened since 1999",
+      feature: 'Disability, Air Condition, Accessible Ramp, Offers Takeout ',
+      phone: 232256443,
+      owner_id: 9,
+      long: -122.42348941938268,
+      lat: 37.76521014391507,
+      website: "http://eatbiglantern.com"
+    )
+
+
+    b10.photo.attach(
+      io: URI.open("https://felp-dev.s3.us-west-1.amazonaws.com/business/bl.jpg"),
+      filename: "bl.jpg"
+    )
+
+    rbl1 = Review.create!(
+      rating: 3,
+      body: 'I am a contonese and honestly this place hits it right at the spot, love their siu mai. But service was horrible, so i will give it a 3 star',
+      biz_id: 10,
+      author_id: 3
+    )
+
+    rbl2 = Review.create!(
+      rating: 4,
+      body: 'the food tastes great! Me and my wife loved it',
+      biz_id: 10,
+      author_id: 6
+    )
+
+    bl1 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/bl1.jpg'), filename:'bl1.jpg'}
+    bl2 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/bl2.jpg'), filename:'bl2.jpg'}
+    bl3 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/bl3.jpg'), filename:'bl3.jpg'}
+    bl4 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/bl4.jpg'), filename:'bl4.jpg'}
+    bl5 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/bl5.jpg'), filename:'bl5.jpg'}
+
+    rbl1.photos.attach([bl1,bl2,bl3])
+    rbl2.photos.attach([bl4,bl5])
 
 
 
 
-    
     puts "Done!"
 
  
