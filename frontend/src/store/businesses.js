@@ -41,7 +41,7 @@ export const fetchQueryBusinesses = (query) => async dispatch => {
     const res = await csrfFetch(`/api/search/${query}`)
     if(res.ok){
         const data = await res.json();
-        console.log(data)
+        // console.log(data)
         dispatch(addBusinesses(data))
     }else{
         throw res

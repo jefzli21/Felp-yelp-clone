@@ -38,7 +38,7 @@ function UserShowPage() {
                 </div>
                 <div>
         <h1 id="usernam">{sessionUser.username}</h1>
-        <h1>So far you have reviewed: </h1>
+        <h1 id="your-review">So far you have reviewed: </h1>
                 </div>
             </div>
         <p></p>

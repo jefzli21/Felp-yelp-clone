@@ -47,7 +47,7 @@ export const getBizReviews = bizId => state =>{
 
 
        let obj= Object.values(state.reviews).filter((review)=> review.bizId === parseInt(bizId))
-       console.log(obj)
+    //    console.log(obj)
         return obj
     }
 };
@@ -143,7 +143,6 @@ function reviewsReducer(state = {}, action) {
             return nextState;
         default:
             return state;
-
     }
 }
     

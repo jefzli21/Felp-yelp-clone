@@ -205,8 +205,9 @@
     padding-left: 50px;
     padding-right: 50px;
     margin: 20px;
-    cursor: pointer;
 }
+
+
 
 .side-item > i{
     padding-left: 50px;
@@ -215,6 +216,11 @@
 #web, #ph{
     font-size: 20px;
     border-bottom: 1px rgb(188, 179, 179) solid;
+}
+
+#web:hover{
+    background-color: lightgray;
+    border-radius: 10px;
 }
 
 #bizaddress{

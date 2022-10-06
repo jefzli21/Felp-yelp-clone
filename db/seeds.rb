@@ -164,7 +164,7 @@ end
       owner_id: 1,
       long: -122.39909297680323,
       lat: 37.79418128176647,
-      website: "www.mcdonalds.com"
+      website: "https://www.mcdonalds.com/us/en-us.html"
     )
 
     b1.photo.attach(
@@ -219,7 +219,7 @@ end
       owner_id: 2,
       long: -122.40780489479005,
       lat: 37.78619309259152,
-      website: "www.bk.com"
+      website: "https://www.bk.com/"
     )
 
     b2.photo.attach(
@@ -271,7 +271,7 @@ end
       owner_id: 3,
       long: -122.46366506747985,
       lat: 37.69345768430718,
-      website: "www.wendys.com"
+      website: "https://www.wendys.com/"
     )
 
     b3.photo.attach(
@@ -329,7 +329,7 @@ end
       owner_id: 4,
       long: -122.42069896992624,
       lat: 37.75384148286603,
-      website: "www.berettasf.com"
+      website: "https://www.berettasf.com/"
     )
     
 
@@ -593,6 +593,73 @@ end
     rtc1.photos.attach([tc1])
     rtc2.photos.attach([tc2])
     rtc3.photos.attach([tc3,tc4,tc5])
+
+
+    b9 = Business.create!(
+      biz_name: "Chapeau",
+      biz_type: '$$$ - French, Fine Dining',
+      address: '126 Clement St San Francisco, CA 94118',
+      hours: 'M-T-W-Th-F  5pm - 9pm',
+      about: "Bone Apple Tea!",
+      feature: 'Disability, Air Condition, Accessible Ramp, Health Score Pass, Offers Takeout ',
+      phone: 234556363,
+      owner_id: 3,
+      long: -122.4606677734677,
+      lat: 37.783450949360706,
+      website: "https://www.chapeausf.com/"
+    )
+
+    b9.photo.attach(
+      io: URI.open("https://felp-dev.s3.us-west-1.amazonaws.com/business/f.jpg"),
+      filename: "f.jpg"
+    )
+    
+
+    rf1 = Review.create!(
+      rating: 5,
+      body: ' I love the aesthetic here, its very beautiful! and the food is very good as well',
+      biz_id: 9,
+      author_id: 1
+    )
+
+    rf2 = Review.create!(
+      rating: 4,
+      body: 'Its a little pricy, but they do have good food, especially the lamb',
+      biz_id: 9,
+      author_id: 2
+    )
+
+    rf3 = Review.create!(
+      rating: 5,
+      body: 'As a French, I approve this restaurant',
+      biz_id: 9,
+      author_id: 7
+    )
+
+    rf4 = Review.create!(
+      rating: 2,
+      body: 'This place is so overpriced and they dont even give you free bread! Unreasonable!',
+      biz_id: 9,
+      author_id: 6
+    )
+
+    f1 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/f1.jpg'), filename:'f1.jpg'}
+    f2 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/f2.jpg'), filename:'f2.jpg'}
+    f3 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/f3.jpg'), filename:'f3.jpg'}
+    f4 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/f4.jpg'), filename:'f4.jpg'}
+    f5 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/f5.jpg'), filename:'f5.jpg'}
+    f6 = {io: URI.open('https://felp-dev.s3.us-west-1.amazonaws.com/business/f6.jpg'), filename:'f6.jpg'}
+
+    rf1.photos.attach([f1])
+    rf2.photos.attach([f2,f3])
+    rf3.photos.attach([f4])
+    rf4.photos.attach([f5,f6])
+
+
+    
+
+
+
 
     
     puts "Done!"

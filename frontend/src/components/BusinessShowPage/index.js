@@ -47,7 +47,7 @@ function BusinessShowPage() {
   let features = bizData.feature
   const allFeatures = features.split(",")
 
-  console.log(allFeatures)
+  // console.log(allFeatures)
 
   const location = {
     address: bizData.address,
@@ -169,7 +169,7 @@ function BusinessShowPage() {
         </ul>
         </div>
         <div className="right">
-          <a className="side-item" id="web" href={bizData.website}>{bizData.website} <i className="fa-solid fa-arrow-right-from-bracket"></i> </a>
+          <a className="side-item" id="web" href={bizData.website} target="_blank" rel="noopener noreferrer">{bizData.website} <i className="fa-solid fa-arrow-right-from-bracket"></i> </a>
           <a className="side-item" id="ph">{bizData.phone} <i className="fa-solid fa-phone"></i></a>
           <a className="dir">
           {/* <h3>Get Direction</h3> */}

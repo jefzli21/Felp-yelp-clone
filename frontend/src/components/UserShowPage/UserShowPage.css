@@ -1,8 +1,8 @@
 .user-title{
     display: flex;
     justify-content: space-around;
-    border-bottom: 10px solid rgba(255, 30, 30, 0.494);
-    background: linear-gradient(#ebb7b7, #f3eed3);
+    border-bottom: 8px solid rgb(255, 31, 31);
+    background: linear-gradient(#f2b0b0ab, #ffffff);
     padding-left: 35rem;
     padding-right: 35rem;
 
@@ -20,7 +20,13 @@
 }
 
 #profilepic{
-    padding-right: 100px;
+    margin-right: 100px;
+    border: 1px rgba(0, 0, 0, 0) solid;
+    border-radius: 10px;
+}
+
+#your-review{
+    color: red;
 }
 
 .addpic{
@@ -78,6 +84,7 @@
     justify-content: center;
     align-items: center;
     width: 50rem;
+    
     /* margin-left: 30rem; */
 }
 
@@ -97,4 +104,5 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+
 }

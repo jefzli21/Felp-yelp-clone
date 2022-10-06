@@ -26,7 +26,7 @@
 #aboutme{
   text-decoration: none;
    color: black;
-   font-size: 15px;
+   font-size: 18px;
 }
 
 #profile{
@@ -69,6 +69,7 @@
 .profile-dropdown > li:hover{
     background-color: lightgray;
     border-radius: 10px;
+    width: 7rem;
 }
 
 .drop{
@@ -86,10 +87,14 @@
 
 #logoutbutt{
     font-size: 17px;
-    /* border: none; */
+    padding-left: 1px;
+    padding-right: 10px;
     background-color: rgba(255, 0, 0, 0);
     cursor: pointer;
+}
 
+#logoutbutt > i{
+  padding-right: 7px;
 }
 
 #icons{
