@@ -93,6 +93,7 @@ function SignupForm({setLoginModal, setSignupModal}) {
         <button type="submit" className="inputbox" id="subbut">Sign Up</button>
       </form>
       <p>Already has an account? <a id='switchlink' onClick={handleClick}>Login to Felp!</a></p>
+    <p id="warn">Once your account is registered, you will not be able to modify it</p>
     </div>
     </>
   );

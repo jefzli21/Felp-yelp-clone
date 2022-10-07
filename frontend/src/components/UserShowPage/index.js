@@ -38,6 +38,7 @@ function UserShowPage() {
                 </div>
                 <div>
         <h1 id="usernam">{sessionUser.username}</h1>
+        <h3 id="number-review"><i className="fa-solid fa-pen-to-square" id="re"></i> {reviewsData.length} Reviews</h3>
         <h1 id="your-review">So far you have reviewed: </h1>
                 </div>
             </div>

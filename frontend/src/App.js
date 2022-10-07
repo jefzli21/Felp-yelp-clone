@@ -38,8 +38,8 @@ function App() {
           <Home />
           <Footer />
           </Route>
-        </Switch>
           <Redirect to="/" />
+        </Switch>
 
     </>
   );

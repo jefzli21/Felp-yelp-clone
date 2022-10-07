@@ -8,6 +8,10 @@
     position: relative;
 }
 
+.search> form{
+    display: flex;
+}
+
 
 #st{
     border: none;
@@ -22,7 +26,7 @@
 }
 
 #mag{
- 
+
 }
 
 #searchbutt:hover{
@@ -39,4 +43,5 @@
     border-radius: 3px;
     /* position: inherit; */
     cursor: pointer;
+    margin-left: -50px;
 }
