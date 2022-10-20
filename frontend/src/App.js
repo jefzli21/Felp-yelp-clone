@@ -8,6 +8,7 @@ import UserShowPage from "./components/UserShowPage";
 import BusinessIndexPage from "./components/BusinessIndexPage";
 import Home from "./components/Home";
 import Footer from "./components/Footer";
+import BusinessCreateForm from "./components/BusinessCreateForm";
 
 function App() {
   
@@ -17,6 +18,11 @@ function App() {
           <Route path="/business/:businessId" >
             <Navigation2 />
             <BusinessShowPage />
+            <Footer />
+          </Route>
+          <Route path="/createbiz" >
+            <Navigation2 />
+            <BusinessCreateForm />
             <Footer />
           </Route>
           <Route path="/review/business/:businessId">
