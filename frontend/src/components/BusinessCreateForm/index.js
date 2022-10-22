@@ -7,10 +7,25 @@ function BusinessCreateForm(){
 
     return(
         <>
-        <h1>Interested in creating your own business?</h1>
+        <h1>Create Your Own Business!</h1>
         
         <form>
+            <label>
+                
             <input type="text" />
+            </label>
+
+            <label>
+            <input type="text" />
+            </label>
+
+            <label>
+            <input type="text" />
+            </label>
+
+            <label>
+            <input type="text" />
+            </label>
         </form>
         
         
