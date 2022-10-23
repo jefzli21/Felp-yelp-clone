@@ -4,12 +4,25 @@ import './BusinessCreateForm.css';
 function BusinessCreateForm(){
 
 
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("biz[bizName]", rating);
+        formData.append("biz[bizType]", body);
+        formData.append("review[bizId]", businessId);
+        formData.append("review[authorId]", sessionUser.id);
+        for (let i = 0; i < photos.length; i++) {
+          formData.append("review[photos][]", photos[i]);
+        }
+
+    }
+
 
     return(
         <>
         <h1>Create Your Own Business!</h1>
         
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>
             Business Name:
             <input type="text" />
