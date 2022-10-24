@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import './BusinessCreateForm.css';
 
 function BusinessCreateForm(){
@@ -14,6 +14,8 @@ function BusinessCreateForm(){
     const [longitutude, setLongitude] = useState("");
     const [latitude, setLatitude] = useState("");
     const [website, setWebsite] = useState("");
+
+    const sessionUser = useSelector((state) => state.session.user);
 
 
     const handleSubmit = (e) =>{
