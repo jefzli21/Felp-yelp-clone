@@ -1,19 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import './BusinessCreateForm.css';
 
 function BusinessCreateForm(){
+    const dispatch = useDispatch();
+    const [bizName, setBizName] = useState("");
+    const [bizType, setBizType] = useState("");
+    const [address, setAddress] = useState("");
+    const [hours, setHours] = useState("");
+    const [about, setAbout] = useState("");
+    const [feature, setFeature] = useState("");
+    const [phone, setPhone] = useState("");
+    const [longitutude, setLongitude] = useState("");
+    const [latitude, setLatitude] = useState("");
+    const [website, setWebsite] = useState("");
 
 
     const handleSubmit = (e) =>{
         e.preventDefault();
         const formData = new FormData();
-        formData.append("biz[bizName]", rating);
-        formData.append("biz[bizType]", body);
-        formData.append("review[bizId]", businessId);
-        formData.append("review[authorId]", sessionUser.id);
-        for (let i = 0; i < photos.length; i++) {
-          formData.append("review[photos][]", photos[i]);
-        }
+        formData.append("biz[bizName]", bizName);
+        formData.append("biz[bizType]", bizType);
+        formData.append("biz[bizId]", businessId);
+        formData.append("biz[ownerId]", sessionUser.id); 
+        formData.append("biz[photo]", photo);
+        
 
     }
 
